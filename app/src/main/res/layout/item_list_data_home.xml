@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/rv_home_image_data"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:contentDescription="@string/image_of_dosen_and_mahasiswa" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/rv_home_name_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            />
+        <TextView
+            android:id="@+id/rv_home_gelar_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_gelar"
+            android:textSize="@dimen/text_content"
+            android:layout_marginTop="@dimen/text_margin"
+            />
+        <TextView
+            android:id="@+id/rv_home_content_description_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum_dolor_sit_amet"
+            android:textSize="@dimen/text_content"
+            />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/rv_home_image_item_description"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp" />
+</LinearLayout>

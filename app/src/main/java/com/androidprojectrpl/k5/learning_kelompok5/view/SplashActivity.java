@@ -1,4 +1,4 @@
-package com.androidprojectrpl.k5.learning_kelompok5;
+package com.androidprojectrpl.k5.learning_kelompok5.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

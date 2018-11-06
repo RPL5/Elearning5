@@ -1,7 +1,9 @@
-package com.androidprojectrpl.k5.learning_kelompok5;
+package com.androidprojectrpl.k5.learning_kelompok5.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.androidprojectrpl.k5.learning_kelompok5.R;
 
 public class MainActivity extends AppCompatActivity {
 
