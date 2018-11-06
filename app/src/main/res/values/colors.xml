@@ -3,4 +3,7 @@
     <color name="colorPrimary">#bc831a</color>
     <color name="colorPrimaryDark">#a06416</color>
     <color name="colorAccent">#1bd834</color>
+    <color name="WarnaIjoUIN">#0A2704</color>
+    <color name="WarnaCoklatNewUIN">#FFBB34</color>
+
 </resources>

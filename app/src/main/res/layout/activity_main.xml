@@ -8,6 +8,7 @@
     android:padding="@dimen/activity_horizontal_padding"
     tools:context=".view.MainActivity">
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_home_activity"
         android:layout_width="match_parent"
