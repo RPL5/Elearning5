@@ -47,14 +47,14 @@
     <EditText
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:hint="@string/username"
+        android:hint="username"
         android:layout_marginTop="275dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"/>
     <EditText
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:hint="@string/password"
+        android:hint="password"
         android:layout_marginTop="350dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
@@ -64,7 +64,7 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"
+        android:text="login"
         android:textSize="18sp"
         android:textColor="@color/colorPrimary"
         android:layout_marginTop="400dp"
