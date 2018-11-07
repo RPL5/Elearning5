@@ -45,19 +45,34 @@
         android:layout_marginLeft="92.5dp"/>
 
     <EditText
+        android:id="@+id/edittext1"
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:hint="username"
-        android:layout_marginTop="275dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"/>
-    <EditText
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:hint="password"
-        android:layout_marginTop="350dp"
-        android:layout_marginRight="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="275dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
+        android:hint="username" />
+
+    <EditText
+        android:id="@+id/edittext2"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
+        android:hint="password"
         android:inputType="textPassword" />
 
     <Button
