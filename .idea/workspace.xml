@@ -15,7 +15,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b51cfb7-796c-4227-b4d3-9bf038ab763f" name="Default" comment="" />
+    <list default="true" id="7b51cfb7-796c-4227-b4d3-9bf038ab763f" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
