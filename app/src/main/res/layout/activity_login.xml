@@ -2,67 +2,65 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    app:titleTextAppearance="@style/AppTheme.NoActionBar"
     android:id="@+id/activity_main"
     android:orientation="vertical"
+    android:padding="75dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_gravity="center_vertical"
     android:background="@drawable/backlogin"
     tools:context=".view.LoginActivity">
 
     <ImageView
         android:id="@+id/logoLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginRight="115dp"
-        android:layout_marginLeft="115dp"
         android:layout_marginBottom="5dp"
         android:src="@drawable/logo"
-        android:layout_gravity="bottom"
+        android:layout_gravity="center"
         android:contentDescription="@string/app_name"
          />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
+        android:text="Suka Learning"
         android:textStyle="bold"
-        tools:text="Suka Learning"
-        tools:textSize="30sp"
-        tools:textColor="@android:color/black"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="90dp"
-        android:layout_marginLeft="90dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:textSize="30sp"
         android:textAlignment="center"
-        tools:text="Please enter your username and password corectly!"
-        tools:textColor="@android:color/black"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="92.5dp"
-        android:layout_marginLeft="92.5dp"/>
+        android:textColor="@android:color/black"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please Enter your username and password corectly"
+        android:textStyle="italic"
+        android:textSize="12sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"/>
+
 
     <EditText
         android:id="@+id/edittext1"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        android:padding="10dp"
 
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="10dp"
-
-        android:layout_marginRight="80dp"
+        android:background="@drawable/textbox"
         android:hint="username" />
 
     <EditText
         android:id="@+id/edittext2"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="10dp"
-
-        android:layout_marginRight="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:background="@drawable/textbox"
         android:hint="password"
         android:inputType="textPassword" />
 
@@ -71,12 +69,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="login"
+        android:textAlignment="center"
         android:textSize="18sp"
         android:textColor="@color/colorPrimary"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="20dp"
+
         android:background="@drawable/mybutton"
 
         android:onClick="LOGIN"
