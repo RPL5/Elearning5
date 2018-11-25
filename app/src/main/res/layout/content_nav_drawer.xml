@@ -9,15 +9,11 @@
     android:orientation="vertical"
     tools:showIn="@layout/app_bar_nav_drawer">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_home_activity"
+    <FrameLayout
+        android:id="@+id/frame_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ini sisnya conten gaes"
-        android:textSize="40dp"/>
+    </FrameLayout>
 
 </LinearLayout>

@@ -14,6 +14,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
     }
     public void LOGIN(View view) {
         EditText edUsername=findViewById(R.id.edittext1);
@@ -28,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
             edPassword.setError("Silahkan mengisi Password terlebih dahulu");
             return;
         }
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this, NavDrawer.class);
         startActivity(intent);
     }
 }
