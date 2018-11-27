@@ -3,6 +3,7 @@ package com.androidprojectrpl.k5.learning_kelompok5.view;
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -93,6 +94,7 @@ public class NavDrawer extends AppCompatActivity
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView =
                 (SearchView) menu.findItem(R.id.search).getActionView();
+        assert searchManager != null;
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(getComponentName()));
 
@@ -117,7 +119,7 @@ public class NavDrawer extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         /*int id = item.getItemId();
 
@@ -139,6 +141,7 @@ public class NavDrawer extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     private void prepareMenuData() {
 
         mataKuliah = new String[]{"Kecerdasan Buatan","Basis Data","pemrograman Web","Multimedia","sistem Informasi","Komputer Masyarakat","Tauhid"};
@@ -146,12 +149,12 @@ public class NavDrawer extends AppCompatActivity
 
         menuList = new String[]{"Pembimbing Akademik","Mata Kuliah","Materi","Tugas","Pengumuman","Quiz","Logout"};
         List<String> menuHead = Arrays.asList(menuList);
-        MenuModel menuModel = new MenuModel("nama menu", true, false, "http://learning.uin-suka.ac.id", ""); //Menu of Android Tutorial. No sub menus
+        MenuModel menuModel; //Menu of Android Tutorial. No sub menus
 
 
         int countGroup=0;
         for (String aMenu : menuList) {
-            if (menuHead.get(countGroup) != "Mata Kuliah") {
+            if (!menuHead.get(countGroup).equals("Mata Kuliah")) {
                 menuModel = new MenuModel(menuHead.get(countGroup), true, false, "http://learning.uin-suka.ac.id", ""); //Menu of Android Tutorial. No sub menus
                 headerList.add(menuModel);
 
