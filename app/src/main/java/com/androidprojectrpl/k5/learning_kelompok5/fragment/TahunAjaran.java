@@ -1,4 +1,4 @@
-package com.androidprojectrpl.k5.learning_kelompok5.Fragment;
+package com.androidprojectrpl.k5.learning_kelompok5.fragment;
 
 
 import android.os.Bundle;
@@ -8,17 +8,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.androidprojectrpl.k5.learning_kelompok5.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PembimbingAkademik extends Fragment implements View.OnClickListener{
+public class TahunAjaran extends Fragment {
+
+    String[] tahun = new String[]{"2011/2012","2012/2013","2013/2014","2014/2015","2015/2016","2016/2017","2017/2018","2018/2019"};
 
 
-    public PembimbingAkademik() {
+    public TahunAjaran() {
         // Required empty public constructor
     }
 
@@ -27,18 +28,12 @@ public class PembimbingAkademik extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pembimbing_akademik, container, false);
+        return inflater.inflate(R.layout.fragment_tahun_ajaran, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button btnCategory = view.findViewById(R.id.btn_category);
-        btnCategory.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
 
     }
 }

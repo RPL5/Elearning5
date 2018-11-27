@@ -18,16 +18,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebView;
 import android.widget.ExpandableListView;
 import android.widget.SearchView;
 
-import com.androidprojectrpl.k5.learning_kelompok5.Fragment.Materi;
-import com.androidprojectrpl.k5.learning_kelompok5.Fragment.PembimbingAkademik;
-import com.androidprojectrpl.k5.learning_kelompok5.Fragment.TahunAjaran;
-import com.androidprojectrpl.k5.learning_kelompok5.Fragment.Tugas;
+import com.androidprojectrpl.k5.learning_kelompok5.fragment.Materi;
+import com.androidprojectrpl.k5.learning_kelompok5.fragment.PembimbingAkademik;
+import com.androidprojectrpl.k5.learning_kelompok5.fragment.Tugas;
 import com.androidprojectrpl.k5.learning_kelompok5.R;
 import com.androidprojectrpl.k5.learning_kelompok5.adapter.ExpandableListAdapter;
+import com.androidprojectrpl.k5.learning_kelompok5.model.MenuModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;

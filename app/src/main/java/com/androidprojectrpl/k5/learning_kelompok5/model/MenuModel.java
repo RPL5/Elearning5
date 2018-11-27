@@ -1,4 +1,4 @@
-package com.androidprojectrpl.k5.learning_kelompok5.view;
+package com.androidprojectrpl.k5.learning_kelompok5.model;
 
 public class MenuModel {
 
@@ -13,6 +13,4 @@ public class MenuModel {
         this.hasChildren = hasChildren;
         this.header = header;
     }
-
-
 }

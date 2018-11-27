@@ -9,7 +9,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.androidprojectrpl.k5.learning_kelompok5.R;
-import com.androidprojectrpl.k5.learning_kelompok5.view.MenuModel;
+import com.androidprojectrpl.k5.learning_kelompok5.model.MenuModel;
 
 import java.util.HashMap;
 import java.util.List;
