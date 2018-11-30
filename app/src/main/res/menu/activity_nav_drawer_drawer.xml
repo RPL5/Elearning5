@@ -1,27 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-
+        <item android:id="@+id/nav_lang"
+            android:icon="@android:drawable/ic_menu_my_calendar"
+            android:title="Tahun"
+            app:actionLayout="@layout/spinner_menu"/>
+        <item android:id="@+id/nav_semester"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="Semester"
+            app:actionLayout="@layout/spinner_menu"/>
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Mata Kuliah">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_makul"
+                android:title=":"
+                android:icon="@android:drawable/ic_menu_compass"
+                app:actionLayout="@layout/spinner_menu"/>
+        </menu>
+    </item>
+    <item android:title="Akademik">
+        <menu>
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_pemAka"
+                android:icon="@drawable/ic_account_circle_white_24dp"
+                android:title="Pembimbing Akademik" />
+            <item
+                android:id="@+id/nav_materi"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Materi" />
+            <item
+                android:id="@+id/nav_tugas"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="Tugas" />
+            <item
+                android:id="@+id/nav_pengumuman"
+                android:icon="@android:drawable/ic_menu_day"
+                android:title="Pengumuman" />
+            <item
+                android:id="@+id/nav_quiz"
+                android:icon="@android:drawable/ic_menu_directions"
+                android:title="Quiz" />
+            <item
+                android:id="@+id/logout"
+                android:icon="@android:drawable/ic_delete"
+                android:title="Logout" />
         </menu>
     </item>
 

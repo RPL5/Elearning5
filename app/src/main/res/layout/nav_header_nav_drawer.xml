@@ -47,13 +47,6 @@
         android:textStyle="bold"
         android:text="16650029" />
 
-        <Button
-            android:id="@+id/thn"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="Tahun Ajaran"
-            android:background="@color/WarnaCoklatNewUIN"/>
-
 
     </LinearLayout>
 

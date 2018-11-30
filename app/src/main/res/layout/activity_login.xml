@@ -11,6 +11,8 @@
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:layout_gravity="center_vertical"
+    android:theme="@style/AppTheme.NoActionBar"
+    style="@style/AppTheme.NoActionBar"
     android:background="@drawable/backlogin"
     tools:context=".view.LoginActivity">
 

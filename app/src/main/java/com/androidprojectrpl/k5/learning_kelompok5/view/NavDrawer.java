@@ -19,8 +19,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
 import android.widget.SearchView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Materi;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.PembimbingAkademik;
@@ -37,13 +41,19 @@ import java.util.List;
 public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private String[] mataKuliah;
-    private String[] menuList;
-
-    ExpandableListAdapter expandableListAdapter;
-    ExpandableListView expandableListView;
-    List<MenuModel> headerList = new ArrayList<>();
-    HashMap<MenuModel, List<MenuModel>> childList = new HashMap<>();
+    private Spinner Spintahun;
+    private Spinner Spinsemester;
+    private Spinner Spinmakul;
+    private ArrayList<String> thnAjaran;
+    private ArrayList<String> matakuliah;
+    private ArrayList<String> matakuliah1;
+    private ArrayList<String> matakuliah2;
+    private ArrayList<String> matakuliah3;
+    private ArrayList<String> matakuliah4;
+    private ArrayList<String> matakuliah5;
+    private ArrayList<String> matakuliah6;
+    private ArrayList<String> semester;
+    private String tahun,smster;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +71,6 @@ public class NavDrawer extends AppCompatActivity
             }
         });
 
-        expandableListView = findViewById(R.id.expandableListView);
-        prepareMenuData();
-        populateExpandableList();
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -73,6 +79,184 @@ public class NavDrawer extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.getMenu().getItem(0).setChecked(true);
+
+        dataSpinner();
+        Spintahun = (Spinner)navigationView.getMenu().findItem(R.id.nav_lang).getActionView();
+        Spintahun.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,thnAjaran));
+        Spintahun.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                Fragment fragment = new PembimbingAkademik();
+
+                tahun = String.valueOf(Spintahun.getSelectedItem());
+
+                if (fragment != null){
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction ft = fragmentManager.beginTransaction();
+
+                    ft.replace(R.id.frame_container, fragment);
+
+                    ft.commit();
+                }
+                //onBackPressed();
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
+        Spinsemester = (Spinner)navigationView.getMenu().findItem(R.id.nav_semester).getActionView();
+        Spinmakul = (Spinner)navigationView.getMenu().findItem(R.id.nav_makul).getActionView();
+        Spinsemester.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,semester));
+        Spinsemester.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                Fragment fragment = new PembimbingAkademik();
+                matakuliah = new ArrayList<String>();
+                smster = String.valueOf(Spinsemester.getSelectedItem());
+
+                if (tahun.contentEquals("2018/2019") && smster.contentEquals("Ganjil")){
+                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah1));
+                }
+                if (tahun.contentEquals("2018/2019") && smster.contentEquals("Genap")){
+                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah2));
+                }
+                if (tahun.contentEquals("2017/2018") && smster.contentEquals("Ganjil")){
+                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah3));
+                }
+                if (tahun.contentEquals("2017/2018") && smster.contentEquals("Genap")){
+                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah4));
+                }
+                if (tahun.contentEquals("2016/2017") && smster.contentEquals("Ganjil")){
+                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah5));
+                }
+                if (tahun.contentEquals("2016/2017") && smster.contentEquals("Genap")){
+                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah6));
+                }
+                if (tahun.contentEquals("2015/2016") && smster.contentEquals("Ganjil")){
+                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah4));
+                }
+                if (tahun.contentEquals("2015/2016") && smster.contentEquals("Genap")){
+                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah2));
+                }
+                if (tahun.contentEquals("2014/2015") && smster.contentEquals("Ganjil")){
+                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah5));
+                }
+                if (tahun.contentEquals("2014/2015") && smster.contentEquals("Genap")){
+                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah3));
+                }
+
+                if (fragment != null){
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction ft = fragmentManager.beginTransaction();
+
+                    ft.replace(R.id.frame_container, fragment);
+
+                    ft.commit();
+                }
+                //onBackPressed();
+
+                Toast.makeText(NavDrawer.this,semester.get(position),Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        Spinmakul.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(NavDrawer.this,Spinmakul.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+    }
+
+    private void dataSpinner() {
+        thnAjaran = new ArrayList<String>();
+        thnAjaran.add("2018/2019");
+        thnAjaran.add("2017/2018");
+        thnAjaran.add("2016/2017");
+        thnAjaran.add("2015/2016");
+        thnAjaran.add("2014/2015");
+
+        semester = new ArrayList<String>();
+        semester.add("Ganjil");
+        semester.add("Genap");
+
+        matakuliah1 = new ArrayList<>();
+        matakuliah1.add("--pilih--");
+        matakuliah1.add("KEcerdasan Buatan");
+        matakuliah1.add("KEcerdasan Buatan");
+        matakuliah1.add("KEcerdasan Buatan");
+        matakuliah1.add("KEcerdasan Buatan");
+        matakuliah1.add("KEcerdasan Buatan");
+        matakuliah1.add("KEcerdasan Buatan");
+        matakuliah1.add("KEcerdasan Buatan");
+        matakuliah1.add("KEcerdasan Buatan");
+
+        matakuliah2 = new ArrayList<>();
+        matakuliah2.add("--pilih--");
+        matakuliah2.add("Basis data");
+        matakuliah2.add("Basis data");
+        matakuliah2.add("Basis data");
+        matakuliah2.add("Basis data");
+        matakuliah2.add("Basis data");
+        matakuliah2.add("Basis data");
+        matakuliah2.add("Basis data");
+        matakuliah2.add("Basis data");
+
+        matakuliah3 = new ArrayList<>();
+        matakuliah3.add("--pilih--");
+        matakuliah3.add("Sistem Informasi Manajemen");
+        matakuliah3.add("Sistem Informasi Manajemen");
+        matakuliah3.add("Sistem Informasi Manajemen");
+        matakuliah3.add("Sistem Informasi Manajemen");
+        matakuliah3.add("Sistem Informasi Manajemen");
+        matakuliah3.add("Sistem Informasi Manajemen");
+        matakuliah3.add("Sistem Informasi Manajemen");
+        matakuliah3.add("Sistem Informasi Manajemen");
+
+        matakuliah4 = new ArrayList<>();
+        matakuliah4.add("--pilih--");
+        matakuliah4.add("Komputer Masyarakat");
+        matakuliah4.add("Komputer Masyarakat");
+        matakuliah4.add("Komputer Masyarakat");
+        matakuliah4.add("Komputer Masyarakat");
+        matakuliah4.add("Komputer Masyarakat");
+        matakuliah4.add("Komputer Masyarakat");
+        matakuliah4.add("Komputer Masyarakat");
+        matakuliah4.add("Komputer Masyarakat");
+
+        matakuliah5 = new ArrayList<String>();
+        matakuliah5.add("--pilih--");
+        matakuliah5.add("Metode Numerik");
+        matakuliah5.add("Metode Numerik");
+        matakuliah5.add("Metode Numerik");
+        matakuliah5.add("Metode Numerik");
+        matakuliah5.add("Metode Numerik");
+        matakuliah5.add("Metode Numerik");
+        matakuliah5.add("Metode Numerik");
+
+        matakuliah6 = new ArrayList<String>();
+        matakuliah6.add("--pilih--");
+        matakuliah6.add("pemrograman web");
+        matakuliah6.add("pemrograman web");
+        matakuliah6.add("pemrograman web");
+        matakuliah6.add("pemrograman web");
+        matakuliah6.add("pemrograman web");
+        matakuliah6.add("pemrograman web");
+        matakuliah6.add("pemrograman web");
+        matakuliah6.add("pemrograman web");
+
     }
 
     @Override
@@ -121,128 +305,25 @@ public class NavDrawer extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
-        /*int id = item.getItemId();
+        int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_pemAka) {
+            // Handle the Pembimbing Akademik button
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_materi) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_pengumuman) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_tugas) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_quiz) {
 
-        }*/
+        } else if (id == R.id.logout) {
 
+        }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    private void prepareMenuData() {
-
-        mataKuliah = new String[]{"Kecerdasan Buatan","Basis Data","pemrograman Web","Multimedia","sistem Informasi","Komputer Masyarakat","Tauhid"};
-        List<String> matkul = Arrays.asList(mataKuliah);
-
-        menuList = new String[]{"Pembimbing Akademik","Mata Kuliah","Materi","Tugas","Pengumuman","Quiz","Logout"};
-        List<String> menuHead = Arrays.asList(menuList);
-        MenuModel menuModel; //Menu of Android Tutorial. No sub menus
-
-
-        int countGroup=0;
-        for (String aMenu : menuList) {
-            if (!menuHead.get(countGroup).equals("Mata Kuliah")) {
-                menuModel = new MenuModel(menuHead.get(countGroup), true, false, "http://learning.uin-suka.ac.id", ""); //Menu of Android Tutorial. No sub menus
-                headerList.add(menuModel);
-
-                if (!menuModel.hasChildren) {
-                    childList.put(menuModel, null);
-                }
-                countGroup++;
-            }
-            else {
-                menuModel = new MenuModel("Mata Kuliah", true, true, "", ""); //Menu of Java Tutorials
-                headerList.add(menuModel);
-                List<MenuModel> childModelsList = new ArrayList<>();
-                int countChild =0;
-                for (String aMataKuliah : mataKuliah) {
-                    MenuModel childModel = new MenuModel(matkul.get(countChild), false, false, "http://uin-suka.ac.id","");
-                    childModelsList.add(childModel);
-                    countChild++;
-                }
-                if (menuModel.hasChildren) {
-                    Log.d("API123","here");
-                    childList.put(menuModel, childModelsList);
-                }
-                countGroup++;
-            }
-        }
-
-    }
-
-    private void populateExpandableList() {
-
-        expandableListAdapter = new ExpandableListAdapter(this, headerList, childList);
-        expandableListView.setAdapter(expandableListAdapter);
-
-        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-
-                if (headerList.get(groupPosition).isGroup) {
-                    if (!headerList.get(groupPosition).hasChildren) {
-                        /*WebView webView = findViewById(R.id.webView);
-                        webView.loadUrl(headerList.get(groupPosition).icon);
-                        onBackPressed();*/
-
-                        Fragment fragment = null;
-
-                        switch (headerList.get(groupPosition).menuName){
-                            case "Pembimbing Akademik" :
-                                fragment = new PembimbingAkademik();
-                                break;
-                            case "Materi" :
-                                fragment = new Materi();
-                                break;
-                            case "Tugas" :
-                                fragment = new Tugas();
-                                break;
-                        }
-
-                        if (fragment != null){
-                            FragmentManager fragmentManager = getSupportFragmentManager();
-                            FragmentTransaction ft = fragmentManager.beginTransaction();
-
-                            ft.replace(R.id.frame_container, fragment);
-
-                            ft.commit();
-                        }
-                        onBackPressed();
-                    }
-                }
-
-                return false;
-            }
-        });
-
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-
-                if (childList.get(headerList.get(groupPosition)) != null) {
-                    MenuModel model = childList.get(headerList.get(groupPosition)).get(childPosition);
-                    /*if (model.icon.length() > 0) {
-                        WebView webView = findViewById(R.id.webView);
-                        webView.loadUrl(model.icon);
-                        onBackPressed();
-                    }*/
-                }
-
-                return false;
-            }
-        });
-    }
 }

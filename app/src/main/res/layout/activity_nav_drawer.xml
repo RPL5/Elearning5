@@ -23,22 +23,6 @@
         app:headerLayout="@layout/nav_header_nav_drawer"
         app:menu="@menu/activity_nav_drawer_drawer">
 
-        <ExpandableListView
-            android:id="@+id/expandableListView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="220dp"
-            android:background="@android:color/white"
-            android:dividerHeight="0dp"
-            android:groupIndicator="@null" />
-
-        <FrameLayout
-            android:id="@+id/Tahun"
-            android:layout_marginTop="220dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-
     </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>
