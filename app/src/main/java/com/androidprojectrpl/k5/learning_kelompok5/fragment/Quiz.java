@@ -1,7 +1,6 @@
 package com.androidprojectrpl.k5.learning_kelompok5.fragment;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,7 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.androidprojectrpl.k5.learning_kelompok5.Data.DataPost;
@@ -29,51 +27,40 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PembimbingAkademik extends Fragment implements View.OnClickListener{
-
-    private RecyclerView rvHome;
+public class Quiz extends Fragment {
+    private RecyclerView rvQuiz;
     private ArrayList<PostModel> list = new ArrayList<>();
     ListAdapter mAdapter;
-    public static String TAHUN_PILIHAN;
 
 
-    public PembimbingAkademik() {
+    public Quiz() {
         // Required empty public constructor
-
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_pembimbing_akademik, container, false);
-        rvHome = (RecyclerView) v.findViewById(R.id.rv_category);
+        /// Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.fragment_quiz, container, false);
+        rvQuiz = (RecyclerView) v.findViewById(R.id.rv_Quiz);
         //rvCategory.setHasFixedSize(true);
 
-        ArrayList<String> pilihan = getArguments().getStringArrayList(TAHUN_PILIHAN);
 
-        list.addAll(DataPost.getListDataUtama(pilihan.get(0),pilihan.get(1)));
+        list.addAll(DataPost.getListDataQuiz());
         //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-        rvHome.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rvHome.setItemAnimator(new DefaultItemAnimator());
-        rvHome.addItemDecoration(new DividerItemDecoration(getActivity(),
+        rvQuiz.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvQuiz.setItemAnimator(new DefaultItemAnimator());
+        rvQuiz.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL));
         mAdapter=new ListAdapter(getActivity());
 
         mAdapter.setListDosen(list);
-        rvHome.setAdapter(mAdapter);
+        rvQuiz.setAdapter(mAdapter);
 
 
         return v;
     }
-
-//    private void showRecyclerList() {
-//        rvHome.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        ListAdapter listAdapter = new ListAdapter(getActivity());
-//        listAdapter.setListDosen(list);
-//        rvHome.setAdapter(listAdapter);
-//    }
 
     private void showSelectedItem(PostModel postModel){
         Toast.makeText(getActivity(), "Kamu memilih "+ postModel.getName(), Toast.LENGTH_SHORT).show();
@@ -88,21 +75,14 @@ public class PembimbingAkademik extends Fragment implements View.OnClickListener
 
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ItemClickSupport.addTo(rvHome).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+        ItemClickSupport.addTo(rvQuiz).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 showSelectedItem(list.get(position));
             }
         });
     }
-
-    @Override
-    public void onClick(View view) {
-
-    }
-
 }

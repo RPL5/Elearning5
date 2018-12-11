@@ -1,84 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
-    app:titleTextAppearance="@style/AppTheme.NoActionBar"
+    app:titleTextAppearance="@style/SplashTheme"
+    style="@style/SplashTheme"
     android:id="@+id/activity_main"
-    android:orientation="vertical"
-    android:padding="75dp"
+    android:padding="@dimen/activity_vertical_padding"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:layout_gravity="center_vertical"
-    android:theme="@style/AppTheme.NoActionBar"
-    style="@style/AppTheme.NoActionBar"
     android:background="@drawable/backlogin"
     tools:context=".view.LoginActivity">
-
-    <ImageView
-        android:id="@+id/logoLogin"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="5dp"
-        android:src="@drawable/logo"
-        android:layout_gravity="center"
-        android:contentDescription="@string/app_name"
-         />
-
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="@dimen/pad_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Suka Learning"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Please Enter your username and password corectly"
-        android:textStyle="italic"
-        android:textSize="12sp"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        >
+        <ImageView
+            android:id="@+id/logoLogin"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Suka Learning"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please Enter your username and password corectly"
+            android:textStyle="italic"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edittext1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:background="@drawable/textbox"
+                android:hint="username" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/WarnaCoklatNewUIN">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edittext2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:padding="5dp"
+                android:background="@drawable/textbox"
+                android:hint="password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/mybutton"
+            android:onClick="LOGIN"
+            />
+
+    </LinearLayout>
 
 
-    <EditText
-        android:id="@+id/edittext1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:padding="10dp"
-
-        android:background="@drawable/textbox"
-        android:hint="username" />
-
-    <EditText
-        android:id="@+id/edittext2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:padding="10dp"
-        android:background="@drawable/textbox"
-        android:hint="password"
-        android:inputType="textPassword" />
-
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="login"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginTop="20dp"
-
-        android:background="@drawable/mybutton"
-
-        android:onClick="LOGIN"
-        />
-
-</LinearLayout>
+</ScrollView>

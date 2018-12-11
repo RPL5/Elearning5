@@ -14,12 +14,12 @@ import com.androidprojectrpl.k5.learning_kelompok5.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TahunAjaran extends Fragment {
+public class MataKuliah extends Fragment {
 
     String[] tahun = new String[]{"2011/2012","2012/2013","2013/2014","2014/2015","2015/2016","2016/2017","2017/2018","2018/2019"};
 
 
-    public TahunAjaran() {
+    public MataKuliah() {
         // Required empty public constructor
     }
 
@@ -28,7 +28,7 @@ public class TahunAjaran extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tahun_ajaran, container, false);
+        return inflater.inflate(R.layout.fragment_mata_kuliah, container, false);
     }
 
     @Override

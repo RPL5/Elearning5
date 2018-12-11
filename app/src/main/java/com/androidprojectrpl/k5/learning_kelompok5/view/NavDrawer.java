@@ -26,8 +26,11 @@ import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.androidprojectrpl.k5.learning_kelompok5.Data.DataMatkul;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Materi;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.PembimbingAkademik;
+import com.androidprojectrpl.k5.learning_kelompok5.fragment.Pengumuman;
+import com.androidprojectrpl.k5.learning_kelompok5.fragment.Quiz;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Tugas;
 import com.androidprojectrpl.k5.learning_kelompok5.R;
 import com.androidprojectrpl.k5.learning_kelompok5.adapter.ExpandableListAdapter;
@@ -45,15 +48,10 @@ public class NavDrawer extends AppCompatActivity
     private Spinner Spinsemester;
     private Spinner Spinmakul;
     private ArrayList<String> thnAjaran;
-    private ArrayList<String> matakuliah;
-    private ArrayList<String> matakuliah1;
-    private ArrayList<String> matakuliah2;
-    private ArrayList<String> matakuliah3;
-    private ArrayList<String> matakuliah4;
-    private ArrayList<String> matakuliah5;
-    private ArrayList<String> matakuliah6;
     private ArrayList<String> semester;
-    private String tahun,smster;
+    private ArrayList<String> pilihan;
+    private String tahun,smster,pilih;
+    private String[] list ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +68,7 @@ public class NavDrawer extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -88,18 +87,8 @@ public class NavDrawer extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                Fragment fragment = new PembimbingAkademik();
-
                 tahun = String.valueOf(Spintahun.getSelectedItem());
 
-                if (fragment != null){
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction ft = fragmentManager.beginTransaction();
-
-                    ft.replace(R.id.frame_container, fragment);
-
-                    ft.commit();
-                }
                 //onBackPressed();
 
             }
@@ -116,46 +105,59 @@ public class NavDrawer extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                Fragment fragment = new PembimbingAkademik();
-                matakuliah = new ArrayList<String>();
+                //Fragment fragment = new PembimbingAkademik();
                 smster = String.valueOf(Spinsemester.getSelectedItem());
 
                 if (tahun.contentEquals("2018/2019") && smster.contentEquals("Ganjil")){
-                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah1));
+                    list = DataMatkul.semester5;
                 }
                 if (tahun.contentEquals("2018/2019") && smster.contentEquals("Genap")){
-                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah2));
+                    list = DataMatkul.semester6;
                 }
                 if (tahun.contentEquals("2017/2018") && smster.contentEquals("Ganjil")){
-                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah3));
+                    list = DataMatkul.semester3;
                 }
                 if (tahun.contentEquals("2017/2018") && smster.contentEquals("Genap")){
-                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah4));
+                    list = DataMatkul.semester4;
                 }
                 if (tahun.contentEquals("2016/2017") && smster.contentEquals("Ganjil")){
-                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah5));
+                    list = DataMatkul.semester1;
                 }
                 if (tahun.contentEquals("2016/2017") && smster.contentEquals("Genap")){
-                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah6));
+                    list = DataMatkul.semester2;
                 }
                 if (tahun.contentEquals("2015/2016") && smster.contentEquals("Ganjil")){
-                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah4));
+                    list = DataMatkul.semester2;
                 }
                 if (tahun.contentEquals("2015/2016") && smster.contentEquals("Genap")){
-                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah2));
+                    list = DataMatkul.semester7;
                 }
                 if (tahun.contentEquals("2014/2015") && smster.contentEquals("Ganjil")){
-                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah5));
+                    list = DataMatkul.semester8;
                 }
                 if (tahun.contentEquals("2014/2015") && smster.contentEquals("Genap")){
-                    Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,matakuliah3));
+                    list = DataMatkul.semester6;
                 }
+                Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,list));
 
-                if (fragment != null){
-                    FragmentManager fragmentManager = getSupportFragmentManager();
+                PembimbingAkademik pembimbingAkademik = new PembimbingAkademik();
+
+                Bundle bundle = new Bundle();
+                pilihan = new ArrayList<String>();
+                pilihan.add(tahun);
+                pilihan.add(smster);
+                bundle.putStringArrayList(PembimbingAkademik.TAHUN_PILIHAN,pilihan);
+
+                pembimbingAkademik.setArguments(bundle);
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+
+                if (fragmentManager != null){
+
                     FragmentTransaction ft = fragmentManager.beginTransaction();
 
-                    ft.replace(R.id.frame_container, fragment);
+                    ft.replace(R.id.frame_container,pembimbingAkademik, PembimbingAkademik.class.getSimpleName());
+                    ft.addToBackStack(null);
 
                     ft.commit();
                 }
@@ -191,71 +193,6 @@ public class NavDrawer extends AppCompatActivity
         semester = new ArrayList<String>();
         semester.add("Ganjil");
         semester.add("Genap");
-
-        matakuliah1 = new ArrayList<>();
-        matakuliah1.add("--pilih--");
-        matakuliah1.add("KEcerdasan Buatan");
-        matakuliah1.add("KEcerdasan Buatan");
-        matakuliah1.add("KEcerdasan Buatan");
-        matakuliah1.add("KEcerdasan Buatan");
-        matakuliah1.add("KEcerdasan Buatan");
-        matakuliah1.add("KEcerdasan Buatan");
-        matakuliah1.add("KEcerdasan Buatan");
-        matakuliah1.add("KEcerdasan Buatan");
-
-        matakuliah2 = new ArrayList<>();
-        matakuliah2.add("--pilih--");
-        matakuliah2.add("Basis data");
-        matakuliah2.add("Basis data");
-        matakuliah2.add("Basis data");
-        matakuliah2.add("Basis data");
-        matakuliah2.add("Basis data");
-        matakuliah2.add("Basis data");
-        matakuliah2.add("Basis data");
-        matakuliah2.add("Basis data");
-
-        matakuliah3 = new ArrayList<>();
-        matakuliah3.add("--pilih--");
-        matakuliah3.add("Sistem Informasi Manajemen");
-        matakuliah3.add("Sistem Informasi Manajemen");
-        matakuliah3.add("Sistem Informasi Manajemen");
-        matakuliah3.add("Sistem Informasi Manajemen");
-        matakuliah3.add("Sistem Informasi Manajemen");
-        matakuliah3.add("Sistem Informasi Manajemen");
-        matakuliah3.add("Sistem Informasi Manajemen");
-        matakuliah3.add("Sistem Informasi Manajemen");
-
-        matakuliah4 = new ArrayList<>();
-        matakuliah4.add("--pilih--");
-        matakuliah4.add("Komputer Masyarakat");
-        matakuliah4.add("Komputer Masyarakat");
-        matakuliah4.add("Komputer Masyarakat");
-        matakuliah4.add("Komputer Masyarakat");
-        matakuliah4.add("Komputer Masyarakat");
-        matakuliah4.add("Komputer Masyarakat");
-        matakuliah4.add("Komputer Masyarakat");
-        matakuliah4.add("Komputer Masyarakat");
-
-        matakuliah5 = new ArrayList<String>();
-        matakuliah5.add("--pilih--");
-        matakuliah5.add("Metode Numerik");
-        matakuliah5.add("Metode Numerik");
-        matakuliah5.add("Metode Numerik");
-        matakuliah5.add("Metode Numerik");
-        matakuliah5.add("Metode Numerik");
-        matakuliah5.add("Metode Numerik");
-        matakuliah5.add("Metode Numerik");
-
-        matakuliah6 = new ArrayList<String>();
-        matakuliah6.add("--pilih--");
-        matakuliah6.add("pemrograman web");
-        matakuliah6.add("pemrograman web");
-        matakuliah6.add("pemrograman web");
-        matakuliah6.add("pemrograman web");
-        matakuliah6.add("pemrograman web");
-        matakuliah6.add("pemrograman web");
-        matakuliah6.add("pemrograman web");
-        matakuliah6.add("pemrograman web");
 
     }
 
@@ -308,15 +245,88 @@ public class NavDrawer extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_pemAka) {
-            // Handle the Pembimbing Akademik button
+            PembimbingAkademik pembimbingAkademik = new PembimbingAkademik();
+
+            Bundle bundle = new Bundle();
+            pilihan = new ArrayList<String>();
+            pilihan.add(tahun);
+            pilihan.add(smster);
+            bundle.putStringArrayList(PembimbingAkademik.TAHUN_PILIHAN,pilihan);
+
+            pembimbingAkademik.setArguments(bundle);
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+
+            if (fragmentManager != null){
+
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+
+                ft.replace(R.id.frame_container,pembimbingAkademik, PembimbingAkademik.class.getSimpleName());
+                ft.addToBackStack(null);
+
+                ft.commit();
+            }
 
         } else if (id == R.id.nav_materi) {
 
+            Materi materi = new Materi();
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+
+            if (fragmentManager != null){
+
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+
+                ft.replace(R.id.frame_container,materi, Materi.class.getSimpleName());
+                ft.addToBackStack(null);
+
+                ft.commit();
+            }
+
         } else if (id == R.id.nav_pengumuman) {
+            Pengumuman pengumuman = new Pengumuman();
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+
+            if (fragmentManager != null){
+
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+
+                ft.replace(R.id.frame_container,pengumuman, Pengumuman.class.getSimpleName());
+                ft.addToBackStack(null);
+
+                ft.commit();
+            }
 
         } else if (id == R.id.nav_tugas) {
+            Tugas tugas = new Tugas();
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+
+            if (fragmentManager != null){
+
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+
+                ft.replace(R.id.frame_container,tugas, Tugas.class.getSimpleName());
+                ft.addToBackStack(null);
+
+                ft.commit();
+            }
 
         } else if (id == R.id.nav_quiz) {
+            Quiz quiz = new Quiz();
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+
+            if (fragmentManager != null){
+
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+
+                ft.replace(R.id.frame_container,quiz, Quiz.class.getSimpleName());
+                ft.addToBackStack(null);
+
+                ft.commit();
+            }
 
         } else if (id == R.id.logout) {
 
