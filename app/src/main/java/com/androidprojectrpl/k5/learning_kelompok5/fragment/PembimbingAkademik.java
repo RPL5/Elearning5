@@ -1,7 +1,6 @@
 package com.androidprojectrpl.k5.learning_kelompok5.fragment;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,7 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.androidprojectrpl.k5.learning_kelompok5.Data.DataPost;
@@ -22,7 +20,7 @@ import com.androidprojectrpl.k5.learning_kelompok5.R;
 import com.androidprojectrpl.k5.learning_kelompok5.adapter.ItemClickSupport;
 import com.androidprojectrpl.k5.learning_kelompok5.adapter.ListAdapter;
 import com.androidprojectrpl.k5.learning_kelompok5.view.DetailActivity;
-import com.androidprojectrpl.k5.learning_kelompok5.view.PostModel;
+import com.androidprojectrpl.k5.learning_kelompok5.model.PostModel;
 
 import java.util.ArrayList;
 
@@ -48,7 +46,7 @@ public class PembimbingAkademik extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_pembimbing_akademik, container, false);
-        rvHome = (RecyclerView) v.findViewById(R.id.rv_category);
+        rvHome = v.findViewById(R.id.rv_category);
         //rvCategory.setHasFixedSize(true);
 
         ArrayList<String> pilihan = getArguments().getStringArrayList(TAHUN_PILIHAN);

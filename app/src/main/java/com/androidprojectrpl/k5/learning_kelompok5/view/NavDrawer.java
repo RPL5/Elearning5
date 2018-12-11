@@ -24,6 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
 import android.widget.SearchView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidprojectrpl.k5.learning_kelompok5.Data.DataMatkul;
@@ -60,6 +61,13 @@ public class NavDrawer extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        TextView nim = findViewById(R.id.nim);
+        TextView namaMhs = findViewById(R.id.nama_mhs);
+
+        String dataNIM = getIntent().getStringExtra("username");
+        String dataNama = getIntent().getStringExtra("nama");
+        Log.e("NavDrawerEXTRA", dataNIM + " " + dataNama);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +90,7 @@ public class NavDrawer extends AppCompatActivity
 
         dataSpinner();
         Spintahun = (Spinner)navigationView.getMenu().findItem(R.id.nav_lang).getActionView();
-        Spintahun.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,thnAjaran));
+        Spintahun.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, thnAjaran));
         Spintahun.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -100,7 +108,7 @@ public class NavDrawer extends AppCompatActivity
 
         Spinsemester = (Spinner)navigationView.getMenu().findItem(R.id.nav_semester).getActionView();
         Spinmakul = (Spinner)navigationView.getMenu().findItem(R.id.nav_makul).getActionView();
-        Spinsemester.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,semester));
+        Spinsemester.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, semester));
         Spinsemester.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -138,12 +146,12 @@ public class NavDrawer extends AppCompatActivity
                 if (tahun.contentEquals("2014/2015") && smster.contentEquals("Genap")){
                     list = DataMatkul.semester6;
                 }
-                Spinmakul.setAdapter(new ArrayAdapter<String>(NavDrawer.this,android.R.layout.simple_spinner_dropdown_item,list));
+                Spinmakul.setAdapter(new ArrayAdapter<>(NavDrawer.this, android.R.layout.simple_spinner_dropdown_item, list));
 
                 PembimbingAkademik pembimbingAkademik = new PembimbingAkademik();
 
                 Bundle bundle = new Bundle();
-                pilihan = new ArrayList<String>();
+                pilihan = new ArrayList<>();
                 pilihan.add(tahun);
                 pilihan.add(smster);
                 bundle.putStringArrayList(PembimbingAkademik.TAHUN_PILIHAN,pilihan);

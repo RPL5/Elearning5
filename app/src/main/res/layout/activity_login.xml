@@ -94,7 +94,6 @@
             android:textColor="@color/colorPrimary"
             android:layout_marginTop="10dp"
             android:background="@drawable/mybutton"
-            android:onClick="LOGIN"
             />
 
     </LinearLayout>

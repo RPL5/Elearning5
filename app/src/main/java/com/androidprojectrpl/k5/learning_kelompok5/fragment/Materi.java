@@ -20,7 +20,7 @@ import com.androidprojectrpl.k5.learning_kelompok5.R;
 import com.androidprojectrpl.k5.learning_kelompok5.adapter.ItemClickSupport;
 import com.androidprojectrpl.k5.learning_kelompok5.adapter.ListAdapter;
 import com.androidprojectrpl.k5.learning_kelompok5.view.DetailActivity;
-import com.androidprojectrpl.k5.learning_kelompok5.view.PostModel;
+import com.androidprojectrpl.k5.learning_kelompok5.model.PostModel;
 
 import java.util.ArrayList;
 
@@ -48,7 +48,7 @@ public class Materi extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_materi, container, false);
-        rvMateri = (RecyclerView) v.findViewById(R.id.rv_materi);
+        rvMateri = v.findViewById(R.id.rv_materi);
         //rvCategory.setHasFixedSize(true);
 
 

@@ -1,6 +1,6 @@
 package com.androidprojectrpl.k5.learning_kelompok5.Data;
 
-import com.androidprojectrpl.k5.learning_kelompok5.view.PostModel;
+import com.androidprojectrpl.k5.learning_kelompok5.model.PostModel;
 
 import java.util.ArrayList;
 

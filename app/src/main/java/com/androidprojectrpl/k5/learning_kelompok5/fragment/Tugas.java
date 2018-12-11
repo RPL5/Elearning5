@@ -20,7 +20,7 @@ import com.androidprojectrpl.k5.learning_kelompok5.R;
 import com.androidprojectrpl.k5.learning_kelompok5.adapter.ItemClickSupport;
 import com.androidprojectrpl.k5.learning_kelompok5.adapter.ListAdapter;
 import com.androidprojectrpl.k5.learning_kelompok5.view.DetailActivity;
-import com.androidprojectrpl.k5.learning_kelompok5.view.PostModel;
+import com.androidprojectrpl.k5.learning_kelompok5.model.PostModel;
 
 import java.util.ArrayList;
 
@@ -43,7 +43,7 @@ public class Tugas extends Fragment {
                              Bundle savedInstanceState) {
         /// Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_tugas, container, false);
-        rvTugas = (RecyclerView) v.findViewById(R.id.rv_tugas);
+        rvTugas = v.findViewById(R.id.rv_tugas);
         //rvCategory.setHasFixedSize(true);
 
 

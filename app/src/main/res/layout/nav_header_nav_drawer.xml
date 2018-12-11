@@ -29,6 +29,7 @@
         tools:ignore="VectorDrawableCompat" />
 
     <TextView
+        android:id="@+id/nama_mhs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
@@ -39,7 +40,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/nim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"

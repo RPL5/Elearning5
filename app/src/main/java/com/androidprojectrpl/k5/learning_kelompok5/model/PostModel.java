@@ -1,8 +1,8 @@
-package com.androidprojectrpl.k5.learning_kelompok5.view;
+package com.androidprojectrpl.k5.learning_kelompok5.model;
 
 public class PostModel {
     private String name,remarks, photos, status;
-    private String title,time,tag,makul;
+    private String title,time,tag,makul, tahun_ajaran, semester;
 
     public PostModel(){
         this.name = getName();
@@ -16,7 +16,7 @@ public class PostModel {
 
     }
 
-    public PostModel(String nama, String gelar, String photo, String desc, String judul, String waktu, String filter, String matkul){
+    public PostModel(String nama, String gelar, String photo, String desc, String judul, String waktu, String filter, String matkul, String tahun_ajaran, String semester){
         this.name = nama;
         this.remarks = gelar;
         this.photos = photo;
@@ -25,6 +25,8 @@ public class PostModel {
         this.time = waktu;
         this.tag = filter;
         this.makul = matkul;
+        this.tahun_ajaran = tahun_ajaran;
+        this.semester = semester;
     }
 
     public String getName() {
@@ -89,5 +91,21 @@ public class PostModel {
 
     public void setMakul(String makul) {
         this.makul = makul;
+    }
+
+    public String getTahun_ajaran() {
+        return tahun_ajaran;
+    }
+
+    public void setTahun_ajaran(String tahun_ajaran) {
+        this.tahun_ajaran = tahun_ajaran;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
 }

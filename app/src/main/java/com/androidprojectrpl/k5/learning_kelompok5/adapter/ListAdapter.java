@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidprojectrpl.k5.learning_kelompok5.R;
-import com.androidprojectrpl.k5.learning_kelompok5.view.PostModel;
+import com.androidprojectrpl.k5.learning_kelompok5.model.PostModel;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
