@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -37,11 +38,20 @@ import com.androidprojectrpl.k5.learning_kelompok5.fragment.Tugas;
 import com.androidprojectrpl.k5.learning_kelompok5.R;
 import com.androidprojectrpl.k5.learning_kelompok5.adapter.ExpandableListAdapter;
 import com.androidprojectrpl.k5.learning_kelompok5.model.MenuModel;
+import com.androidprojectrpl.k5.learning_kelompok5.model.Profile;
+import com.androidprojectrpl.k5.learning_kelompok5.model.ProfileResponse;
+import com.androidprojectrpl.k5.learning_kelompok5.network.ApiInterface;
+import com.androidprojectrpl.k5.learning_kelompok5.network.ConsumeDataAPI;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -54,6 +64,9 @@ public class NavDrawer extends AppCompatActivity
     private ArrayList<String> pilihan;
     private String tahun,smster,pilih;
     private String[] list ;
+    private ApiInterface dataAPI;
+    private Context context;
+    ImageView profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,12 +75,22 @@ public class NavDrawer extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TextView nim = findViewById(R.id.nim);
-        TextView namaMhs = findViewById(R.id.nama_mhs);
 
         String dataNIM = getIntent().getStringExtra("username");
         String dataNama = getIntent().getStringExtra("nama");
-        Log.e("NavDrawerEXTRA", dataNIM + " " + dataNama);
+
+        NavigationView navView = findViewById(R.id.nav_view);
+        View header = navView.getHeaderView(0);
+
+        TextView nim = header.findViewById(R.id.nim);
+        TextView namaMhs = header.findViewById(R.id.nama_mhs);
+        profile = header.findViewById(R.id.imageView);
+
+        nim.setText(dataNIM);
+        namaMhs.setText(dataNama);
+
+        context = this;
+        dataAPI = ConsumeDataAPI.getApiService();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +100,28 @@ public class NavDrawer extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
+        dataAPI.getFoto(dataNIM)
+                .enqueue(new Callback<ProfileResponse>() {
+                    @Override
+                    public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                        if (response.isSuccessful()){
+                            List<Profile> data = response.body().getData();
+
+                            Glide.with(context)
+                                    .load(data.get(0).getFoto())
+                                    .into(profile);
+
+                        }else{
+                            Log.e("PHOTO ERROR",response.message());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ProfileResponse> call, Throwable t) {
+                        Log.e("ERROR",t.getMessage());
+                    }
+                });
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

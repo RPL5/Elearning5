@@ -27,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private ApiInterface dataAPI;
     private Context context;
+    EditText edUsername,edPassword;
+    String qUsername, qPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,15 +51,26 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    public void login(View view){
+        edUsername = findViewById(R.id.edittext1);
+        edPassword = findViewById(R.id.edittext2);
+        qUsername = edUsername.getText().toString();
+        qPassword = edPassword.getText().toString();
+
+        Log.e("USER AND PASSWORD VALUE",qUsername + " " + qPassword);
+        loginRequest(qUsername, qPassword);
+    }
+
     private void loginRequest(String username, String password){
         dataAPI.getMahasiswa(username,password)
                 .enqueue(new Callback<MahasiswaResponse>() {
                     @Override
-                    public void onResponse(@NonNull Call<MahasiswaResponse> call, @NonNull Response<MahasiswaResponse> response) {
+                    public void onResponse(Call<MahasiswaResponse> call, Response<MahasiswaResponse> response) {
+                        Log.i("RESPONSE INFO",response.message() + " and " + response.isSuccessful() );
                         if (response.isSuccessful()){
-                            Intent intent = new Intent(LoginActivity.this, NavDrawer.class);
                             assert response.body() != null;
                             List<Mahasiswa> data = response.body().getUser();
+                            Intent intent = new Intent(LoginActivity.this, NavDrawer.class);
                             intent.putExtra("username", data.get(0).getNim());
                             intent.putExtra("nama",data.get(0).getNamaMhs());
                             startActivity(intent);
