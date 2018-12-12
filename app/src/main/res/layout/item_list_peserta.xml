@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        android:id="@+id/nomer"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:background="#dedede"
+        android:text="no"
+        android:textSize="14sp"
+        android:layout_gravity="center_vertical"
+        />
+    <TextView
+        android:id="@+id/nim_peserta"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#efefef"
+        android:text="11111111"
+        android:textSize="14sp"
+        android:layout_gravity="center_vertical"
+        />
+    <TextView
+        android:id="@+id/nama_peserta"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="#dedede"
+        android:text="aaaaaaaaaaa"
+        android:textSize="14sp"
+        android:layout_gravity="center_vertical"
+        />
+
+</LinearLayout>

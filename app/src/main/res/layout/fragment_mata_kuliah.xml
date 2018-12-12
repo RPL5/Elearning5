@@ -7,16 +7,21 @@
     tools:context=".fragment.MataKuliah">
 
     <!-- TODO: Update blank fragment layout -->
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </ListView>
-    <TextView
+    <Button
+        android:id="@+id/but_peserta"
+        android:layout_margin="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="cobain gaes"
-        android:textSize="50dp"/>
+        android:text="Lihat Data Peserta"
+        android:textColor="@color/WarnaCoklatNewUIN"
+        android:background="@drawable/mybutton"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_peserta"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_list_data_home"/>
 
 </FrameLayout>

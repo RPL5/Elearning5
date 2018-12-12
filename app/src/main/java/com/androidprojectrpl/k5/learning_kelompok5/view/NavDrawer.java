@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidprojectrpl.k5.learning_kelompok5.Data.DataMatkul;
+import com.androidprojectrpl.k5.learning_kelompok5.fragment.MataKuliah;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Materi;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.PembimbingAkademik;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Pengumuman;
@@ -181,7 +182,34 @@ public class NavDrawer extends AppCompatActivity
         Spinmakul.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(NavDrawer.this,Spinmakul.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+                pilih = String.valueOf(Spinmakul.getSelectedItem());
+
+                if (pilih.equals("--Pilih--")){
+                    Toast.makeText(NavDrawer.this,Spinmakul.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+                }else {
+
+                    MataKuliah mataKuliah = new MataKuliah();
+
+                    Bundle fBundle = new Bundle();
+                    fBundle.putString(MataKuliah.MAKUL_PILIHAN, pilih);
+
+                    mataKuliah.setArguments(fBundle);
+
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+
+                    if (fragmentManager != null) {
+
+                        FragmentTransaction ft = fragmentManager.beginTransaction();
+
+                        ft.replace(R.id.frame_container, mataKuliah, MataKuliah.class.getSimpleName());
+                        ft.addToBackStack(null);
+
+                        ft.commit();
+                    }
+
+
+                    Toast.makeText(NavDrawer.this, Spinmakul.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
