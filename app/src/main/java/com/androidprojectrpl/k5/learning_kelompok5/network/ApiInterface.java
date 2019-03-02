@@ -1,6 +1,6 @@
 package com.androidprojectrpl.k5.learning_kelompok5.network;
 
-import com.androidprojectrpl.k5.learning_kelompok5.model.MahasiswaResponse;
+import com.androidprojectrpl.k5.learning_kelompok5.model.Mahasiswa;
 import com.androidprojectrpl.k5.learning_kelompok5.model.MatkulModel;
 import com.androidprojectrpl.k5.learning_kelompok5.model.ProfileResponse;
 
@@ -15,8 +15,8 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("auth/login")
-    Call<MahasiswaResponse> getMahasiswa(@Field("nim") String nim,
-                                         @Field("password") String password);
+    Call<Mahasiswa> getMahasiswa(@Field("nim") String nim,
+                                 @Field("password") String password);
 
     @GET("api/makul")
     Call<MatkulModel> getMatkul();
