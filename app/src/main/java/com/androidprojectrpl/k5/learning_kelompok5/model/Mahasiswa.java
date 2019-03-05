@@ -1,44 +1,9 @@
 package com.androidprojectrpl.k5.learning_kelompok5.model;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class Mahasiswa {
-    private String id;
-
-    @SerializedName("user")
-    @Expose
     private String username;
-
-    @SerializedName("pass")
-    @Expose
-    private String password;
-
-    @SerializedName("name")
-    @Expose
-    private String namaMhs;
-
-    @Expose
-    private String nim;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    private String email;
-
+    private String id_user;
+    private String success;
     public String getUsername() {
         return username;
     }
@@ -47,27 +12,19 @@ public class Mahasiswa {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSuccess() {
+        return success;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSuccess(String success) {
+        this.success = success;
     }
 
-    public String getNamaMhs() {
-        return namaMhs;
+    public String getId_user() {
+        return id_user;
     }
 
-    public void setNamaMhs(String namaMhs) {
-        this.namaMhs = namaMhs;
-    }
-
-    public String getNim() {
-        return nim;
-    }
-
-    public void setNim(String nim) {
-        this.nim = nim;
+    public void setId_user(String id_user) {
+        this.id_user = id_user;
     }
 }

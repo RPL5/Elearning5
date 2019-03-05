@@ -5,12 +5,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -27,25 +26,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidprojectrpl.k5.learning_kelompok5.Data.DataMatkul;
+import com.androidprojectrpl.k5.learning_kelompok5.R;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.MataKuliah;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Materi;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.PembimbingAkademik;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Pengumuman;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Quiz;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Tugas;
-import com.androidprojectrpl.k5.learning_kelompok5.R;
-import com.androidprojectrpl.k5.learning_kelompok5.model.Profile;
-import com.androidprojectrpl.k5.learning_kelompok5.model.ProfileResponse;
 import com.androidprojectrpl.k5.learning_kelompok5.network.ApiInterface;
-import com.androidprojectrpl.k5.learning_kelompok5.network.ConsumeDataAPI;
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -58,8 +48,6 @@ public class NavDrawer extends AppCompatActivity
     private ArrayList<String> pilihan;
     private String tahun,smster,pilih;
     private String[] list ;
-    private ApiInterface dataAPI;
-    private Context context;
     ImageView profile;
 
     @Override
@@ -83,9 +71,6 @@ public class NavDrawer extends AppCompatActivity
         nim.setText(dataNIM);
         namaMhs.setText(dataNama);
 
-        context = this;
-        dataAPI = ConsumeDataAPI.getApiService();
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,30 +79,6 @@ public class NavDrawer extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-
-        dataAPI.getFoto(dataNIM)
-                .enqueue(new Callback<ProfileResponse>() {
-                    @Override
-                    public void onResponse(@NonNull Call<ProfileResponse> call, @NonNull Response<ProfileResponse> response) {
-                        if (response.isSuccessful()){
-                            assert response.body() != null;
-                            List<Profile> data = response.body().getData();
-
-                            Glide.with(context)
-                                    .load(data.get(0).getFoto())
-                                    .into(profile);
-
-                        }else{
-                            Log.e("PHOTO ERROR",response.message());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Call<ProfileResponse> call, @NonNull Throwable t) {
-                        Log.e("ERROR",t.getMessage());
-                    }
-                });
-
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

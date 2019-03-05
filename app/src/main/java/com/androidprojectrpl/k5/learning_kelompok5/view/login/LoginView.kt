@@ -1,7 +1,13 @@
 package com.androidprojectrpl.k5.learning_kelompok5.view.login
 
-interface LoginView {
-    fun setAction(){}
+import com.androidprojectrpl.k5.learning_kelompok5.model.Mahasiswa
 
-    fun onFailRequest(errMessage : String){}
+interface LoginView {
+    fun showProgress()
+
+    fun hideProgress()
+
+    fun setAction(data : Mahasiswa)
+
+    fun onFailRequest(errMessage : String)
 }
