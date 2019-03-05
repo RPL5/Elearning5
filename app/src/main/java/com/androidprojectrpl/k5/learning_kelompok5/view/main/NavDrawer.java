@@ -1,7 +1,10 @@
 package com.androidprojectrpl.k5.learning_kelompok5.view.main;
 
+import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -33,12 +36,15 @@ import com.androidprojectrpl.k5.learning_kelompok5.fragment.PembimbingAkademik;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Pengumuman;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Quiz;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Tugas;
-import com.androidprojectrpl.k5.learning_kelompok5.network.ApiInterface;
+import com.androidprojectrpl.k5.learning_kelompok5.model.User;
+import com.bumptech.glide.Glide;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 public class NavDrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, MainView {
 
     private Spinner Spintahun;
     private Spinner Spinsemester;
@@ -47,8 +53,13 @@ public class NavDrawer extends AppCompatActivity
     private ArrayList<String> semester;
     private ArrayList<String> pilihan;
     private String tahun,smster,pilih;
-    private String[] list ;
-    ImageView profile;
+    private String[] list;
+    private TextView nim, namaMhs;
+    private MainPresenter presenter;
+    private ImageView profile;
+    private SharedPreferences prefs;
+
+    private static final String PREFERENCES = "SharedLearning";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,20 +67,17 @@ public class NavDrawer extends AppCompatActivity
         setContentView(R.layout.activity_nav_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-        String dataNIM = getIntent().getStringExtra("username");
-        String dataNama = getIntent().getStringExtra("nama");
+        prefs = getSharedPreferences(PREFERENCES,MODE_PRIVATE);
+        presenter = new MainPresenter(this);
 
         NavigationView navView = findViewById(R.id.nav_view);
         View header = navView.getHeaderView(0);
 
-        TextView nim = header.findViewById(R.id.nim);
-        TextView namaMhs = header.findViewById(R.id.nama_mhs);
+        nim = header.findViewById(R.id.nim);
+        namaMhs = header.findViewById(R.id.nama_mhs);
         profile = header.findViewById(R.id.imageView);
 
-        nim.setText(dataNIM);
-        namaMhs.setText(dataNama);
+        nim.setText(prefs.getString("username",""));
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -98,8 +106,6 @@ public class NavDrawer extends AppCompatActivity
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 tahun = String.valueOf(Spintahun.getSelectedItem());
-
-                //onBackPressed();
 
             }
             @Override
@@ -171,7 +177,6 @@ public class NavDrawer extends AppCompatActivity
 
                     ft.commit();
                 }
-                //onBackPressed();
 
                 Toast.makeText(NavDrawer.this,semester.get(position),Toast.LENGTH_SHORT).show();
             }
@@ -220,14 +225,14 @@ public class NavDrawer extends AppCompatActivity
     }
 
     private void dataSpinner() {
-        thnAjaran = new ArrayList<String>();
+        thnAjaran = new ArrayList<>();
         thnAjaran.add("2018/2019");
         thnAjaran.add("2017/2018");
         thnAjaran.add("2016/2017");
         thnAjaran.add("2015/2016");
         thnAjaran.add("2014/2015");
 
-        semester = new ArrayList<String>();
+        semester = new ArrayList<>();
         semester.add("Ganjil");
         semester.add("Genap");
 
@@ -260,20 +265,11 @@ public class NavDrawer extends AppCompatActivity
         return true;
     }
 
-    /*@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        //if (id == R.id.action_settings) {
-            return true;
-        //}
-
-        return super.onOptionsItemSelected(item);
-    }*/
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.getUser(prefs.getString("id",""));
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -285,7 +281,7 @@ public class NavDrawer extends AppCompatActivity
             PembimbingAkademik pembimbingAkademik = new PembimbingAkademik();
 
             Bundle bundle = new Bundle();
-            pilihan = new ArrayList<String>();
+            pilihan = new ArrayList<>();
             pilihan.add(tahun);
             pilihan.add(smster);
             bundle.putStringArrayList(PembimbingAkademik.TAHUN_PILIHAN,pilihan);
@@ -373,4 +369,31 @@ public class NavDrawer extends AppCompatActivity
         return true;
     }
 
+    @Override
+    public void setUserData(@NonNull User data) {
+        namaMhs.setText(data.getEmail());
+        if (data.getAvatar() != null){
+            Glide.with(this)
+                    .load(data.getAvatar())
+                    .into(profile);
+        }
+    }
+
+    @Override
+    public void setPresenter(@NotNull MainPresenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
+    public void onError(@NonNull String message) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setMessage(message)
+                .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
+    }
 }

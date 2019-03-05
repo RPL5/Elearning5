@@ -11,10 +11,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df8f1694-b868-4463-91ca-3f5b3ac0641e" name="Default" comment="Fix fail send JSONObject to API">
+    <list default="true" id="df8f1694-b868-4463-91ca-3f5b3ac0641e" name="Default" comment="Set Automatic enter Apps without Login">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/model/User.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/MainPresenter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/MainView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/SplashActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/network/ApiInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/network/ApiInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/NavDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/NavDrawer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,34 +63,34 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="4" />
-          <entry key="java" value="26" />
-          <entry key="kt" value="6" />
+          <entry key="java" value="28" />
+          <entry key="kt" value="11" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="4" />
-          <entry key="JAVA" value="26" />
-          <entry key="Kotlin" value="6" />
+          <entry key="JAVA" value="28" />
+          <entry key="Kotlin" value="11" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="10" />
-          <entry key="java" value="1268" />
-          <entry key="kt" value="1015" />
-          <entry key="txt" value="136" />
+          <entry key="java" value="1826" />
+          <entry key="kt" value="1629" />
+          <entry key="txt" value="176" />
           <entry key="xml" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="10" />
-          <entry key="JAVA" value="1268" />
-          <entry key="Kotlin" value="1015" />
-          <entry key="PLAIN_TEXT" value="136" />
+          <entry key="JAVA" value="1826" />
+          <entry key="Kotlin" value="1629" />
+          <entry key="PLAIN_TEXT" value="176" />
           <entry key="XML" value="16" />
         </counts>
       </usages-collector>
@@ -96,44 +101,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+            <state relative-caret-position="202">
+              <caret line="55" column="49" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1464#1631#0" expanded="true" />
-                <element signature="e#1630#1631#0" expanded="true" />
-                <element signature="e#2360#2361#0" expanded="true" />
-                <element signature="e#2394#2395#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/SplashActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginView.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginPresenter.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
-              <folding>
-                <element signature="e#64#328#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -142,17 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/network/ApiClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/NavDrawer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-137">
-              <caret line="71" column="34" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
+            <state relative-caret-position="306">
+              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -161,28 +123,52 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/network/ApiInterface.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/NavDrawer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="-555">
+              <caret line="70" column="44" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3425#3693#0" expanded="true" />
+                <element signature="e#3692#3693#0" expanded="true" />
+                <element signature="e#12478#12521#0" expanded="true" />
+                <element signature="e#13729#13730#0" expanded="true" />
+                <element signature="e#13771#13772#0" expanded="true" />
+                <element signature="e#14249#14477#0" expanded="true" />
+                <element signature="e#14476#14477#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/model/Mahasiswa.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/MainPresenter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="186">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
-                <element signature="e#355#356#0" expanded="true" />
-                <element signature="e#385#386#0" expanded="true" />
-                <element signature="e#431#432#0" expanded="true" />
-                <element signature="e#469#470#0" expanded="true" />
-                <element signature="e#503#504#0" expanded="true" />
-                <element signature="e#533#534#0" expanded="true" />
-                <element signature="e#579#580#0" expanded="true" />
-                <element signature="e#617#618#0" expanded="true" />
+                <element signature="e#63#327#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/MainView.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/network/ApiInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -194,9 +180,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
-        <option value="Kotlin Interface" />
       </list>
     </option>
   </component>
@@ -2582,14 +2568,18 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/adapter/ExpandableListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/utils/BasePresenter.kt" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/NavDrawer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginView.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/model/Mahasiswa.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/network/ApiClient.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginPresenter.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/network/ApiInterface.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/SplashActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/model/User.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/utils/Params.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/MainView.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/NavDrawer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/MainPresenter.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/network/ApiInterface.java" />
       </list>
     </option>
   </component>
@@ -2630,7 +2620,29 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="learning_kelompok5" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearning5" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="learning_kelompok5" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearning5" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="learning_kelompok5" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Elearning5" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="learning_kelompok5" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Elearning5" type="1abcf292:AndroidViewProjectNode" />
@@ -2792,7 +2804,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551760951605</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Set Automatic enter Apps without Login">
+      <created>1551761367955</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1551761367955</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2806,8 +2825,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497332" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2497332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Captures" order="2" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="3" />
@@ -2817,7 +2837,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32930845" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32930845" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32930845" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39956093" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -2836,11 +2856,11 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Preview" order="5" weight="0.32977587" />
       <window_info anchor="right" id="Device File Explorer" order="6" side_tool="true" />
-      <window_info anchor="right" id="Flutter Outline" order="7" />
-      <window_info anchor="right" id="Gradle" order="8" weight="0.32977587" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info anchor="right" id="Theme Preview" order="10" />
-      <window_info anchor="right" id="Anko Layout Preview" order="11" weight="0.32977587" />
+      <window_info anchor="right" id="Gradle" order="7" weight="0.32977587" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Anko Layout Preview" order="10" weight="0.32977587" />
+      <window_info anchor="right" id="Flutter Outline" order="11" weight="0.32977587" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2852,7 +2872,8 @@
     <MESSAGE value="Refactor for new API" />
     <MESSAGE value="Create MVP Pattern. Using RxJava, RxAndroid for Observable data from API" />
     <MESSAGE value="Fix fail send JSONObject to API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix fail send JSONObject to API" />
+    <MESSAGE value="Set Automatic enter Apps without Login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set Automatic enter Apps without Login" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -2981,20 +3002,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/NavDrawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-137">
-          <caret line="71" column="34" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginView.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/SplashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/utils/Params.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="42" lean-forward="true" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginPresenter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="e#64#328#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3015,48 +3050,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="55" column="49" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/model/User.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/NavDrawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-555">
+          <caret line="70" column="44" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3425#3693#0" expanded="true" />
+            <element signature="e#3692#3693#0" expanded="true" />
+            <element signature="e#12478#12521#0" expanded="true" />
+            <element signature="e#13729#13730#0" expanded="true" />
+            <element signature="e#13771#13772#0" expanded="true" />
+            <element signature="e#14249#14477#0" expanded="true" />
+            <element signature="e#14476#14477#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/MainPresenter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#63#327#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/network/ApiClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+        <state relative-caret-position="306">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/main/MainView.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/network/ApiInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginPresenter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="e#64#328#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/login/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+        <state relative-caret-position="323">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1464#1631#0" expanded="true" />
-            <element signature="e#1630#1631#0" expanded="true" />
-            <element signature="e#2360#2361#0" expanded="true" />
-            <element signature="e#2394#2395#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/androidprojectrpl/k5/learning_kelompok5/view/SplashActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
         </state>
       </provider>
     </entry>

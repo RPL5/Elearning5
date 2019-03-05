@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         SharedPreferences sharedPreferences = getSharedPreferences("SharedLearning",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("username",data.getUsername());
+        editor.putString("id",data.getId_user());
         editor.putBoolean("isLogin",true);
         editor.apply();
         editor.commit();
