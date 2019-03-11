@@ -27,7 +27,6 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.androidprojectrpl.k5.learning_kelompok5.Data.DataMatkul;
 import com.androidprojectrpl.k5.learning_kelompok5.R;
@@ -122,7 +121,6 @@ public class NavDrawer extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                //Fragment fragment = new PembimbingAkademik();
                 smster = String.valueOf(Spinsemester.getSelectedItem());
 
                 if (tahun.contentEquals("2018/2019") && smster.contentEquals("Ganjil")){
@@ -178,8 +176,6 @@ public class NavDrawer extends AppCompatActivity
 
                     ft.commit();
                 }
-
-                Toast.makeText(NavDrawer.this,semester.get(position),Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -191,8 +187,7 @@ public class NavDrawer extends AppCompatActivity
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 pilih = String.valueOf(Spinmakul.getSelectedItem());
 
-                if (pilih.equals("--Pilih--")){
-                }else {
+                if (!pilih.equals("--Pilih--")) {
 
                     MataKuliah mataKuliah = new MataKuliah();
 
