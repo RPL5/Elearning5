@@ -37,7 +37,7 @@ class LoginPresenter(private val context : LoginView)
                     context.setAction(data)
                 },{error ->
                     context.hideProgress()
-                    context.onFailRequest(error.localizedMessage)
+                    context.onFailRequest("Terjadi masalah dengan koneksi anda!")
                 })
         compositeSubscription.add(subscription)
     }
