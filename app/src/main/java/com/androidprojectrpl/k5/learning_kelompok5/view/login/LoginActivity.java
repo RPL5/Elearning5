@@ -53,16 +53,21 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
 
     @Override
     public void setAction(@NonNull Mahasiswa data) {
-        SharedPreferences sharedPreferences = getSharedPreferences("SharedLearning",Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("username",data.getUsername());
-        editor.putString("id",data.getId_user());
-        editor.putBoolean("isLogin",true);
-        editor.apply();
-        editor.commit();
+        if (data.getSuccess().equals("false")){
+            setMessage("User tidak ditemukan");
+        }
+        else{
+            SharedPreferences sharedPreferences = getSharedPreferences("SharedLearning",Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("username",data.getUsername());
+            editor.putString("id",data.getId_user());
+            editor.putBoolean("isLogin",true);
+            editor.apply();
+            editor.commit();
 
-        Intent intent = new Intent(this, NavDrawer.class);
-        startActivity(intent);
+            Intent intent = new Intent(this, NavDrawer.class);
+            startActivity(intent);
+        }
     }
 
     @Override

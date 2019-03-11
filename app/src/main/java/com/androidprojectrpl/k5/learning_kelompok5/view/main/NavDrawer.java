@@ -360,6 +360,7 @@ public class NavDrawer extends AppCompatActivity
                     .apply();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
+            this.finish();
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
