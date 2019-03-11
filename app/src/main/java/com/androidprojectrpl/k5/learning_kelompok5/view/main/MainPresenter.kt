@@ -1,5 +1,6 @@
 package com.androidprojectrpl.k5.learning_kelompok5.view.main
 
+import android.util.Log
 import com.androidprojectrpl.k5.learning_kelompok5.network.ApiClient
 import com.androidprojectrpl.k5.learning_kelompok5.utils.BasePresenter
 import rx.android.schedulers.AndroidSchedulers
@@ -27,6 +28,7 @@ class MainPresenter (private val context : MainView) : BasePresenter{
                     context.setUserData(data)
                 },{error->
                     context.onError("Terjadi masalah dengan koneksi anda!")
+                    Log.e("Error Get Data",error.localizedMessage)
                 })
         compositeSubscription.add(subscription)
     }

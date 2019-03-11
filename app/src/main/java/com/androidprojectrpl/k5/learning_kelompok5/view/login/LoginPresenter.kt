@@ -1,5 +1,6 @@
 package com.androidprojectrpl.k5.learning_kelompok5.view.login
 
+import android.util.Log
 import com.androidprojectrpl.k5.learning_kelompok5.network.ApiClient
 import com.androidprojectrpl.k5.learning_kelompok5.utils.BasePresenter
 import com.google.gson.JsonObject
@@ -38,6 +39,7 @@ class LoginPresenter(private val context : LoginView)
                 },{error ->
                     context.hideProgress()
                     context.onFailRequest("Terjadi masalah dengan koneksi anda!")
+                    Log.e("Error Login",error.localizedMessage)
                 })
         compositeSubscription.add(subscription)
     }

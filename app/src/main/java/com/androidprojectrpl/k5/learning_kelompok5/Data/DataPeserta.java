@@ -1,6 +1,5 @@
 package com.androidprojectrpl.k5.learning_kelompok5.Data;
 
-import com.androidprojectrpl.k5.learning_kelompok5.model.Mahasiswa;
 import com.androidprojectrpl.k5.learning_kelompok5.model.PesertaKelasModel;
 
 import java.util.ArrayList;

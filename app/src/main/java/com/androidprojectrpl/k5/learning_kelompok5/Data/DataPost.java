@@ -24,7 +24,7 @@ public class DataPost {
     };
 
     public static ArrayList<PostModel> getListData(){
-        PostModel postModel = null;
+        PostModel postModel;
         ArrayList<PostModel> list = new ArrayList<>();
         for (String[] aData : data) {
             postModel = new PostModel();
@@ -43,10 +43,10 @@ public class DataPost {
         return list;
     }
     public static ArrayList<PostModel> getListDataMateri(){
-        PostModel postModel = null;
+        PostModel postModel;
         ArrayList<PostModel> list = new ArrayList<>();
         for (String[] aData : data) {
-            if (aData[6]=="materi") {
+            if (aData[6].equals("materi")) {
                 postModel = new PostModel();
                 postModel.setName(aData[0]);
                 postModel.setRemarks(aData[1]);
@@ -65,7 +65,7 @@ public class DataPost {
     }
 
     public static ArrayList<PostModel> getListDataUtama(String Tahun, String Semester){
-        PostModel postModel = null;
+        PostModel postModel;
         ArrayList<PostModel> list = new ArrayList<>();
         for (String[] aData : data) {
             if (aData[8].equals(Tahun) && aData[9].equals(Semester)) {
@@ -152,7 +152,7 @@ public class DataPost {
         return list;
     }
     public static ArrayList<PostModel> getListDataMatkul(String matkul){
-        PostModel postModel = null;
+        PostModel postModel;
         ArrayList<PostModel> list = new ArrayList<>();
         for (String[] aData : data) {
             if (aData[7].equals(matkul)) {
