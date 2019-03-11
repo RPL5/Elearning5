@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:transition:28.0.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$APPLICATION_HOME_DIR$/gradle/gradle-4.10.1/caches/transforms-1/files-1.1/transition-28.0.0.aar/2dc81adcef70521f4a8eb629b81bc49b/annotations.zip!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/gradle/gradle-4.10.1/caches/transforms-1/files-1.1/transition-28.0.0.aar/632d66ca760b1de00e6220e0d44b550c/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$APPLICATION_HOME_DIR$/gradle/gradle-4.10.1/caches/transforms-1/files-1.1/transition-28.0.0.aar/2dc81adcef70521f4a8eb629b81bc49b/jars/classes.jar!/" />
-      <root url="file://$APPLICATION_HOME_DIR$/gradle/gradle-4.10.1/caches/transforms-1/files-1.1/transition-28.0.0.aar/2dc81adcef70521f4a8eb629b81bc49b/res" />
+      <root url="file://$APPLICATION_HOME_DIR$/gradle/gradle-4.10.1/caches/transforms-1/files-1.1/transition-28.0.0.aar/632d66ca760b1de00e6220e0d44b550c/res" />
+      <root url="jar://$APPLICATION_HOME_DIR$/gradle/gradle-4.10.1/caches/transforms-1/files-1.1/transition-28.0.0.aar/632d66ca760b1de00e6220e0d44b550c/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
