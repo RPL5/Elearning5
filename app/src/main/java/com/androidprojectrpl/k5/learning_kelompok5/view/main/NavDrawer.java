@@ -1,15 +1,16 @@
 package com.androidprojectrpl.k5.learning_kelompok5.view.main;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -37,6 +38,7 @@ import com.androidprojectrpl.k5.learning_kelompok5.fragment.Pengumuman;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Quiz;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Tugas;
 import com.androidprojectrpl.k5.learning_kelompok5.model.User;
+import com.androidprojectrpl.k5.learning_kelompok5.view.login.LoginActivity;
 import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
@@ -70,8 +72,9 @@ public class NavDrawer extends AppCompatActivity
         prefs = getSharedPreferences(PREFERENCES,MODE_PRIVATE);
         presenter = new MainPresenter(this);
 
-        NavigationView navView = findViewById(R.id.nav_view);
-        View header = navView.getHeaderView(0);
+        @SuppressLint("CutPasteId")
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View header = navigationView.getHeaderView(0);
 
         nim = header.findViewById(R.id.nim);
         namaMhs = header.findViewById(R.id.nama_mhs);
@@ -83,8 +86,7 @@ public class NavDrawer extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
             }
         });
 
@@ -94,7 +96,6 @@ public class NavDrawer extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
 
@@ -191,7 +192,6 @@ public class NavDrawer extends AppCompatActivity
                 pilih = String.valueOf(Spinmakul.getSelectedItem());
 
                 if (pilih.equals("--Pilih--")){
-                    Toast.makeText(NavDrawer.this,Spinmakul.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
                 }else {
 
                     MataKuliah mataKuliah = new MataKuliah();
@@ -212,9 +212,6 @@ public class NavDrawer extends AppCompatActivity
 
                         ft.commit();
                     }
-
-
-                    Toast.makeText(NavDrawer.this, Spinmakul.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -362,7 +359,12 @@ public class NavDrawer extends AppCompatActivity
             }
 
         } else if (id == R.id.logout) {
-
+            prefs.edit()
+                    .clear()
+                    .putBoolean("isLogin",false)
+                    .apply();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

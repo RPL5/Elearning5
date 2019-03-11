@@ -26,7 +26,7 @@ class MainPresenter (private val context : MainView) : BasePresenter{
                 .subscribe({data ->
                     context.setUserData(data)
                 },{error->
-                    context.onError(error.localizedMessage)
+                    context.onError("Terjadi masalah dengan koneksi anda!")
                 })
         compositeSubscription.add(subscription)
     }
