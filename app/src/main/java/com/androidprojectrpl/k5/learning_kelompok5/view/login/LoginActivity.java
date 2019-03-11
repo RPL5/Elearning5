@@ -37,7 +37,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.loginRequest(edUsername.getText().toString(),edPassword.getText().toString());
+                if (edUsername.getText().toString().isEmpty() || edPassword.getText().toString().isEmpty()){
+                    setMessage("Username atau Password kosong...");
+                }
+                else presenter.loginRequest(edUsername.getText().toString(),edPassword.getText().toString());
             }
         });
     }
