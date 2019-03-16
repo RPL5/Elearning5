@@ -8,7 +8,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
     private static final String BASE_URL = "https://api-learning.puspidep.org/";
     private static Retrofit retrofit = null;
-    private static ApiInterface apiInterface;
 
     private static final OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
     public static ApiInterface getClient(){
@@ -21,8 +20,6 @@ public class ApiClient {
                     .build();
         }
 
-        apiInterface = retrofit.create(ApiInterface.class);
-
-        return apiInterface;
+        return retrofit.create(ApiInterface.class);
     }
 }

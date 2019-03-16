@@ -67,6 +67,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
 
             Intent intent = new Intent(this, NavDrawer.class);
             startActivity(intent);
+            this.finish();
         }
     }
 
