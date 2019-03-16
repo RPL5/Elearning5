@@ -37,6 +37,7 @@ import com.androidprojectrpl.k5.learning_kelompok5.fragment.Pengumuman;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Quiz;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Tugas;
 import com.androidprojectrpl.k5.learning_kelompok5.model.User;
+import com.androidprojectrpl.k5.learning_kelompok5.utils.Constant;
 import com.androidprojectrpl.k5.learning_kelompok5.view.login.LoginActivity;
 import com.bumptech.glide.Glide;
 
@@ -60,15 +61,13 @@ public class NavDrawer extends AppCompatActivity
     private ImageView profile;
     private SharedPreferences prefs;
 
-    private static final String PREFERENCES = "SharedLearning";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        prefs = getSharedPreferences(PREFERENCES,MODE_PRIVATE);
+        prefs = getSharedPreferences(new Constant().getPREFERENCES(),MODE_PRIVATE);
         presenter = new MainPresenter(this);
 
         @SuppressLint("CutPasteId")

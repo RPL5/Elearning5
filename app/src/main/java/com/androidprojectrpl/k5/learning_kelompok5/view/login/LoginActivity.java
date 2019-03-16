@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import com.androidprojectrpl.k5.learning_kelompok5.R;
 import com.androidprojectrpl.k5.learning_kelompok5.model.Mahasiswa;
+import com.androidprojectrpl.k5.learning_kelompok5.utils.Constant;
 import com.androidprojectrpl.k5.learning_kelompok5.view.main.NavDrawer;
 
 public class LoginActivity extends AppCompatActivity implements LoginView{
@@ -57,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
             setMessage("User tidak ditemukan");
         }
         else{
-            SharedPreferences sharedPreferences = getSharedPreferences("SharedLearning",Context.MODE_PRIVATE);
+            SharedPreferences sharedPreferences = getSharedPreferences(new Constant().getPREFERENCES(),Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("username",data.getUsername());
             editor.putString("id",data.getId_user());
