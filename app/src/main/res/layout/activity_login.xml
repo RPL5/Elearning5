@@ -95,6 +95,19 @@
             android:background="@drawable/mybutton"
             />
 
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/white_button"
+
+            />
+
     </LinearLayout>
 
 

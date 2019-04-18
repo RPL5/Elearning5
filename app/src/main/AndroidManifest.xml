@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".view.login.RegisterActivity"></activity>
         <activity
             android:name=".view.DetailActivity"
             android:icon="@drawable/flower"

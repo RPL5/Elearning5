@@ -18,9 +18,9 @@ import rx.subscriptions.CompositeSubscription
 class MainPresenter (private val context : MainView) : BasePresenter{
 
     private val compositeSubscription = CompositeSubscription()
+    private val service = ApiClient.getClient()
 
     fun getUser(id : String){
-        val service = ApiClient.getClient()
         val subscription = service.getUser(Integer.valueOf(id))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
