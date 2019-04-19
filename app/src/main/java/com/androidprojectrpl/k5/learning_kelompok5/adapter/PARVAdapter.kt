@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import com.androidprojectrpl.k5.learning_kelompok5.R
 import com.androidprojectrpl.k5.learning_kelompok5.model.ClassUser
+import com.bumptech.glide.Glide
 
 class PARVAdapter(
         val context : Context,
@@ -23,7 +25,17 @@ class PARVAdapter(
 
     inner class PARVViewHolder(v : View) : RecyclerView.ViewHolder(v){
         internal val image : ImageView = v.findViewById(R.id.rv_home_image_data)
+        internal val name : TextView = v.findViewById(R.id.rv_home_name_data)
+        internal val gelar : TextView = v.findViewById(R.id.rv_home_gelar_data)
+        internal val judul : TextView = v.findViewById(R.id.rv_home_Title)
+        internal val deskripsi : TextView = v.findViewById(R.id.rv_home_content_description_data)
+        internal val time : TextView = v.findViewById(R.id.rv_time)
         fun bind(data : ClassUser){
+            Glide.with(context)
+                    .load("http://ujianonline.frezateam.com/___/img/pic_login.png")
+                    .into(image)
+            name.text = data.name_class
+            gelar.text = ""
 
         }
     }

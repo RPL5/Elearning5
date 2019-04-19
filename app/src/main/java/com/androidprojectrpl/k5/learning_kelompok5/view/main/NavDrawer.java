@@ -22,13 +22,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.androidprojectrpl.k5.learning_kelompok5.Data.DataMatkul;
 import com.androidprojectrpl.k5.learning_kelompok5.R;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.MataKuliah;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Materi;
@@ -97,90 +95,7 @@ public class NavDrawer extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
 
-        dataSpinner();
-        Spintahun = (Spinner)navigationView.getMenu().findItem(R.id.nav_lang).getActionView();
-        Spintahun.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, thnAjaran));
-        Spintahun.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                tahun = String.valueOf(Spintahun.getSelectedItem());
-
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-
-        Spinsemester = (Spinner)navigationView.getMenu().findItem(R.id.nav_semester).getActionView();
         Spinmakul = (Spinner)navigationView.getMenu().findItem(R.id.nav_makul).getActionView();
-        Spinsemester.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, semester));
-        Spinsemester.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                smster = String.valueOf(Spinsemester.getSelectedItem());
-
-                if (tahun.contentEquals("2018/2019") && smster.contentEquals("Ganjil")){
-                    list = DataMatkul.semester5;
-                }
-                if (tahun.contentEquals("2018/2019") && smster.contentEquals("Genap")){
-                    list = DataMatkul.semester6;
-                }
-                if (tahun.contentEquals("2017/2018") && smster.contentEquals("Ganjil")){
-                    list = DataMatkul.semester3;
-                }
-                if (tahun.contentEquals("2017/2018") && smster.contentEquals("Genap")){
-                    list = DataMatkul.semester4;
-                }
-                if (tahun.contentEquals("2016/2017") && smster.contentEquals("Ganjil")){
-                    list = DataMatkul.semester1;
-                }
-                if (tahun.contentEquals("2016/2017") && smster.contentEquals("Genap")){
-                    list = DataMatkul.semester2;
-                }
-                if (tahun.contentEquals("2015/2016") && smster.contentEquals("Ganjil")){
-                    list = DataMatkul.semester2;
-                }
-                if (tahun.contentEquals("2015/2016") && smster.contentEquals("Genap")){
-                    list = DataMatkul.semester7;
-                }
-                if (tahun.contentEquals("2014/2015") && smster.contentEquals("Ganjil")){
-                    list = DataMatkul.semester8;
-                }
-                if (tahun.contentEquals("2014/2015") && smster.contentEquals("Genap")){
-                    list = DataMatkul.semester6;
-                }
-                Spinmakul.setAdapter(new ArrayAdapter<>(NavDrawer.this, android.R.layout.simple_spinner_dropdown_item, list));
-
-                PembimbingAkademik pembimbingAkademik = new PembimbingAkademik();
-
-                Bundle bundle = new Bundle();
-                pilihan = new ArrayList<>();
-                pilihan.add(tahun);
-                pilihan.add(smster);
-                bundle.putStringArrayList(PembimbingAkademik.TAHUN_PILIHAN,pilihan);
-
-                pembimbingAkademik.setArguments(bundle);
-
-                FragmentManager fragmentManager = getSupportFragmentManager();
-
-                if (fragmentManager != null){
-
-                    FragmentTransaction ft = fragmentManager.beginTransaction();
-
-                    ft.replace(R.id.frame_container,pembimbingAkademik, PembimbingAkademik.class.getSimpleName());
-                    ft.addToBackStack(null);
-
-                    ft.commit();
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
         Spinmakul.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -275,7 +190,7 @@ public class NavDrawer extends AppCompatActivity
             pilihan = new ArrayList<>();
             pilihan.add(tahun);
             pilihan.add(smster);
-            bundle.putStringArrayList(PembimbingAkademik.TAHUN_PILIHAN,pilihan);
+            bundle.putStringArrayList("Tahun",pilihan);
 
             pembimbingAkademik.setArguments(bundle);
 
