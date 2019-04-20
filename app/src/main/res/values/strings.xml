@@ -35,4 +35,7 @@
     <string name="password">password</string>
     <string name="username">username</string>
     <string name="register">Register</string>
+    <string name="program_studi">Program Studi</string>
+    <string name="ketik_ulang_password">Ketik ulang password</string>
+    <string name="suka_learning">Suka Learning</string>
 </resources>

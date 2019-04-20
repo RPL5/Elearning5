@@ -12,6 +12,7 @@ class LoginPresenter(private val context : LoginView)
     : BasePresenter {
 
     private val compositeSubscription : CompositeSubscription
+    private val service = ApiClient.getClient()
 
     init {
         compositeSubscription = CompositeSubscription()
@@ -29,7 +30,6 @@ class LoginPresenter(private val context : LoginView)
         validation.addProperty("username",username)
         validation.addProperty("password",password)
 
-        val service = ApiClient.getClient()
         val subscription = service.getMahasiswa(validation)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -42,5 +42,23 @@ class LoginPresenter(private val context : LoginView)
                     Log.e("Error Login",error.localizedMessage)
                 })
         compositeSubscription.add(subscription)
+    }
+
+    fun registerRequest(username: String, password: String, prodi : String, email : String){
+        val registerData = JsonObject()
+        registerData.addProperty("avatar","user.jpeg")
+        registerData.addProperty("username", username)
+        registerData.addProperty("email", email)
+        registerData.addProperty("password", password)
+        registerData.addProperty("prodi", prodi)
+        registerData.addProperty("verifed","0")
+        val subscription = service.register(registerData)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({data ->
+
+                }, {error ->
+
+                })
     }
 }

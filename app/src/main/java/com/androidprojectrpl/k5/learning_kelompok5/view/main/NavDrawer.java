@@ -41,19 +41,11 @@ import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-
 public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, MainView {
 
-    private Spinner Spintahun;
-    private Spinner Spinsemester;
     private Spinner Spinmakul;
-    private ArrayList<String> thnAjaran;
-    private ArrayList<String> semester;
-    private ArrayList<String> pilihan;
-    private String tahun,smster,pilih;
-    private String[] list;
+    private String pilih;
     private TextView nim, namaMhs;
     private MainPresenter presenter;
     private ImageView profile;
@@ -63,10 +55,16 @@ public class NavDrawer extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_drawer);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         prefs = getSharedPreferences(new Constant().getPREFERENCES(),MODE_PRIVATE);
         presenter = new MainPresenter(this);
+
+        setNavigationView();
+        setFloatActionButton();
+    }
+
+    private void setNavigationView(){
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         @SuppressLint("CutPasteId")
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -77,15 +75,6 @@ public class NavDrawer extends AppCompatActivity
         profile = header.findViewById(R.id.imageView);
 
         nim.setText(prefs.getString("username",""));
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -127,21 +116,16 @@ public class NavDrawer extends AppCompatActivity
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
     }
 
-    private void dataSpinner() {
-        thnAjaran = new ArrayList<>();
-        thnAjaran.add("2018/2019");
-        thnAjaran.add("2017/2018");
-        thnAjaran.add("2016/2017");
-        thnAjaran.add("2015/2016");
-        thnAjaran.add("2014/2015");
+    private void setFloatActionButton(){
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        semester = new ArrayList<>();
-        semester.add("Ganjil");
-        semester.add("Genap");
-
+            }
+        });
     }
 
     @Override
@@ -185,14 +169,6 @@ public class NavDrawer extends AppCompatActivity
 
         if (id == R.id.nav_pemAka) {
             PembimbingAkademik pembimbingAkademik = new PembimbingAkademik();
-
-            Bundle bundle = new Bundle();
-            pilihan = new ArrayList<>();
-            pilihan.add(tahun);
-            pilihan.add(smster);
-            bundle.putStringArrayList("Tahun",pilihan);
-
-            pembimbingAkademik.setArguments(bundle);
 
             FragmentManager fragmentManager = getSupportFragmentManager();
 

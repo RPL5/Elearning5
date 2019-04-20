@@ -4,18 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
-
-    <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_lang"
-            android:icon="@android:drawable/ic_menu_my_calendar"
-            android:title="Tahun"
-            app:actionLayout="@layout/spinner_menu"/>
-        <item android:id="@+id/nav_semester"
-            android:icon="@android:drawable/ic_menu_agenda"
-            android:title="Semester"
-            app:actionLayout="@layout/spinner_menu"/>
-    </group>
-
     <item android:title="Mata Kuliah">
         <menu>
             <item

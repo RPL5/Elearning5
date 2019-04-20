@@ -32,7 +32,6 @@ public interface ApiInterface {
     @Headers("accept: application/json")
     Observable<User> getUser(@Path("id_user") int id_user);
 
-
     @POST("api/v1/update/{id_user}")
     @Headers({"accept: application/json\",\"Content-Type: application/json"})
     Observable<Result> updateProfile(@Path("id_user") int id, @Body JsonObject body);
