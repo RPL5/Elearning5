@@ -22,9 +22,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class PembimbingAkademik extends Fragment implements View.OnClickListener, SegmentMainInterface, PembimbinganAkademikSegment {
 
     private RecyclerView rvHome;
@@ -34,7 +31,7 @@ public class PembimbingAkademik extends Fragment implements View.OnClickListener
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_pembimbing_akademik, container, false);

@@ -22,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Spinner;
@@ -34,6 +35,7 @@ import com.androidprojectrpl.k5.learning_kelompok5.fragment.PembimbingAkademik;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Pengumuman;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Quiz;
 import com.androidprojectrpl.k5.learning_kelompok5.fragment.Tugas;
+import com.androidprojectrpl.k5.learning_kelompok5.model.ClassUser;
 import com.androidprojectrpl.k5.learning_kelompok5.model.User;
 import com.androidprojectrpl.k5.learning_kelompok5.utils.Constant;
 import com.androidprojectrpl.k5.learning_kelompok5.view.login.LoginActivity;
@@ -41,10 +43,13 @@ import com.bumptech.glide.Glide;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, MainView {
 
     private Spinner Spinmakul;
+    private ArrayList<ClassUser> mataKuliah;
     private String pilih;
     private TextView nim, namaMhs;
     private MainPresenter presenter;
@@ -55,9 +60,10 @@ public class NavDrawer extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_drawer);
-        prefs = getSharedPreferences(new Constant().getPREFERENCES(),MODE_PRIVATE);
+        prefs = getSharedPreferences(Constant.PREFERENCES,MODE_PRIVATE);
         presenter = new MainPresenter(this);
-
+        presenter.getUser(prefs.getString("id",""));
+        presenter.getClass(prefs.getString("id",""));
         setNavigationView();
         setFloatActionButton();
     }
@@ -93,11 +99,6 @@ public class NavDrawer extends AppCompatActivity
                 if (!pilih.equals("--Pilih--")) {
 
                     MataKuliah mataKuliah = new MataKuliah();
-
-                    Bundle fBundle = new Bundle();
-                    fBundle.putString(MataKuliah.MAKUL_PILIHAN, pilih);
-
-                    mataKuliah.setArguments(fBundle);
 
                     FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -158,10 +159,8 @@ public class NavDrawer extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.getUser(prefs.getString("id",""));
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
@@ -283,5 +282,11 @@ public class NavDrawer extends AppCompatActivity
                     }
                 })
                 .show();
+    }
+
+    @Override
+    public void setUserClass(@NotNull ArrayList<ClassUser> data) {
+        mataKuliah = data;
+        Spinmakul.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, mataKuliah));
     }
 }

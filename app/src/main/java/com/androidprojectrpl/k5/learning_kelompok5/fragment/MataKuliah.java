@@ -16,7 +16,6 @@ import com.androidprojectrpl.k5.learning_kelompok5.R;
  */
 public class MataKuliah extends Fragment implements View.OnClickListener{
 
-    public static String MAKUL_PILIHAN;
     public MataKuliah() {
         // Required empty public constructor
     }

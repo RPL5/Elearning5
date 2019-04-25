@@ -1,5 +1,6 @@
 package com.androidprojectrpl.k5.learning_kelompok5.view.main
 
+import com.androidprojectrpl.k5.learning_kelompok5.model.ClassUser
 import com.androidprojectrpl.k5.learning_kelompok5.model.User
 
 /*
@@ -13,6 +14,8 @@ import com.androidprojectrpl.k5.learning_kelompok5.model.User
 
 interface MainView {
     fun setUserData(data : User)
+
+    fun setUserClass(data : ArrayList<ClassUser>)
 
     fun setPresenter(presenter : MainPresenter)
 

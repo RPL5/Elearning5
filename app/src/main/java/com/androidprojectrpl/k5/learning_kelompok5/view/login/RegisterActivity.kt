@@ -12,7 +12,7 @@ import com.androidprojectrpl.k5.learning_kelompok5.utils.visible
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
-    val prefs = getSharedPreferences(Constant().PREFERENCES, Context.MODE_PRIVATE)
+    val prefs = getSharedPreferences(Constant.PREFERENCES, Context.MODE_PRIVATE)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

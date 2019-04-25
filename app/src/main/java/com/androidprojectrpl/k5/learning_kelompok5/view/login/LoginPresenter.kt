@@ -11,12 +11,8 @@ import rx.subscriptions.CompositeSubscription
 class LoginPresenter(private val context : LoginView)
     : BasePresenter {
 
-    private val compositeSubscription : CompositeSubscription
+    private val compositeSubscription : CompositeSubscription = CompositeSubscription()
     private val service = ApiClient.getClient()
-
-    init {
-        compositeSubscription = CompositeSubscription()
-    }
 
     override fun subscribe() {}
 

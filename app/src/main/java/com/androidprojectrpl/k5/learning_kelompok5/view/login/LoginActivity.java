@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
             setMessage("User tidak ditemukan");
         }
         else{
-            SharedPreferences sharedPreferences = getSharedPreferences(new Constant().getPREFERENCES(),Context.MODE_PRIVATE);
+            SharedPreferences sharedPreferences = getSharedPreferences(Constant.PREFERENCES, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("username",data.getUsername());
             editor.putString("id",data.getId_user());

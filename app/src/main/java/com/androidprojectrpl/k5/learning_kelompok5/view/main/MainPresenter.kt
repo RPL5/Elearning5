@@ -33,6 +33,19 @@ class MainPresenter (private val context : MainView) : BasePresenter{
         compositeSubscription.add(subscription)
     }
 
+    fun getClass(id : String){
+        val subscription = service.getClassById(Integer.valueOf(id))
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    data ->
+                    context.setUserClass(data)
+                }, { error ->
+                    context.onError(error.localizedMessage)
+                })
+        compositeSubscription.add(subscription)
+    }
+
     override fun subscribe() {
         context.setPresenter(this)
     }

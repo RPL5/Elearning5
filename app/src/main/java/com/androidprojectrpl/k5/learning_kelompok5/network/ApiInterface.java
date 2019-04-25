@@ -7,7 +7,7 @@ import com.androidprojectrpl.k5.learning_kelompok5.model.Result;
 import com.androidprojectrpl.k5.learning_kelompok5.model.User;
 import com.google.gson.JsonObject;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -43,11 +43,11 @@ public interface ApiInterface {
 
     @GET("api/v1/getclass/{id_class}")
     @Headers({"accept: application/json"})
-    Observable<List<ClassInfo>> getClassPosting (@Path("id_class") int id);
+    Observable<ArrayList<ClassInfo>> getClassPosting (@Path("id_class") int id);
 
     @GET("api/v1/class/{id_user}")
     @Headers({"accept: application/json"})
-    Observable<List<ClassUser>> getClassById (@Path("id_user") int id);
+    Observable<ArrayList<ClassUser>> getClassById (@Path("id_user") int id);
 
 
 }
