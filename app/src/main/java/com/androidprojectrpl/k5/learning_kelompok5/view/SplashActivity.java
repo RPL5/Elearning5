@@ -15,7 +15,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SharedPreferences prefs = getSharedPreferences(new Constant().getPREFERENCES(),MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(Constant.PREFERENCES,MODE_PRIVATE);
 
         Intent intent;
         if (prefs.getBoolean("isLogin",false)){

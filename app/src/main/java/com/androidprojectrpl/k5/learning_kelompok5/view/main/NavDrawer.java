@@ -55,6 +55,7 @@ public class NavDrawer extends AppCompatActivity
     private MainPresenter presenter;
     private ImageView profile;
     private SharedPreferences prefs;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,11 +121,10 @@ public class NavDrawer extends AppCompatActivity
     }
 
     private void setFloatActionButton(){
-        FloatingActionButton fab = findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
     }

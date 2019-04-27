@@ -29,7 +29,6 @@
         android:layout_gravity="bottom|end"
         android:backgroundTint="@color/colorPrimary"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email"
-        tools:ignore="UnusedAttribute" />
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </android.support.design.widget.CoordinatorLayout>
